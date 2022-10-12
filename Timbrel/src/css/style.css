@@ -9,13 +9,16 @@ img {
 }
 
 body {
-    width: 1920px;
+    width: 1650px;
+}
+
+header {
+    width: 1919px;
 }
 
 .menu {
     height: 40px;
     display: block;
-    margin: 0 auto;
     border-bottom: 1px solid grey;
 }
 
