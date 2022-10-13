@@ -138,9 +138,9 @@ header {
 }
 
 .promo {
-    width: 1920px;
-    height: 539px;
-    background: url("../img/bg.png") center;
+    width: 1910px;
+    height: 519px;
+    background: url("../img/bg.png") center center;
     background-color: #ffd55c;
     border: 3px solid orange;
 }
