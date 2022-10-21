@@ -25,7 +25,7 @@
                 color: #0d0d0d;
                 margin-top: 38px;
                 font-size: 18px;
-                font-weight: 500;
+                font-weight: 700;
                 text-align: center;
             }
             .benefits-icons__descr {
@@ -36,8 +36,14 @@
                 font-size: 14px;
                 font-weight: 300;
                 text-align: center;
+                span {
+                    color: #ff0000;
+                    text-decoration: underline;
+                }
             }
         }
     }
 
 }
+
+@import "base/media";
