@@ -4,9 +4,20 @@
             align-items: center;
         }
     }
+    .consultation {
+        .title_left {
+            text-align: center;
+        }
+    .consultation__descr {
+        text-align: center;
+        }
+    .feed-form {
+        margin: 36px auto 0 auto;
+    }
+    }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 992px) {
     .container {
         width: 95%;
     }
@@ -43,7 +54,20 @@
             }
         }
     }
+    .consultation {
+        .consultation__descr {
+            text-align: center;
+        }
+        .title_left {
+            text-align: center;
+            font-size: 33px;
+        }
+        .feed-form {
+            margin: 36px auto 0 auto;
+        }
+    }
 }
+
 
 @media (max-width: 768px) {
     .promo {
@@ -92,6 +116,11 @@
         flex-direction: column;
         &__icon {
             margin-top: 20px;
+        }
+    }
+    .consultation {
+        .title_left {
+            font-size: 26px;
         }
     }
 }
@@ -166,6 +195,17 @@
         }
         .benefits-icons__descr {
             margin-top: 17px;
+        }
+    }
+    .consultation {
+        .title_left {
+            font-size: 19px;
+        }
+        .consultation__descr {
+            font-size: 15px;
+        }
+        .feed-form {
+            width: 100%;
         }
     }
 

@@ -5,6 +5,8 @@
 * {
     font-family: "Museo Sans Cyrl", sans-serif;
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
@@ -15,4 +17,8 @@
 @import "blocks/promo";
 @import "blocks/header";
 @import "blocks/buttons";
-@import "blocks/benefits"
+@import "blocks/benefits";
+@import "blocks/consultation";
+@import "blocks/titles";
+@import "blocks/forms";
+@import "blocks/carousel";
