@@ -1,6 +1,26 @@
 "use strict";
 
+/* const slider = tns({
+    container: '.carousel__inner',
+    items: 1,
+    slideBy: 'page',
+    autoplay: false,
+    controls: false,
+    nav: false
+  });
 
+document.querySelector('.prev').addEventListener("click", function () {
+    slider.goTo("prev");
+  }); 
+
+  document.querySelector('.next').addEventListener("click", function () {
+    slider.goTo("next");
+  });  */
+
+
+
+
+//slick slider
 $(document).ready(function () {
     $('.carousel__inner').slick({
         speed: 1200,
@@ -15,4 +35,13 @@ $(document).ready(function () {
             }
         }]
     });
+/*     $(".slick-initialized").css("color", "transparent");
+    $(".slick-dots").css("display","flex");
+    $(".slick-dots").css("list-style-type","none");
+    $(".slick-dots").contents("li").css("margin", "auto");
+    $("li").contents("button").css("background-color", "black");
+    $("li").contents("button").css("border-radius", "100%");
+    $("li").contents("button").css("color", "transparent"); */
 });
+
+

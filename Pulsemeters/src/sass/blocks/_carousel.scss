@@ -21,17 +21,9 @@
         right: -66px;
         left: auto;
     }
-    .slick-dots {
-        list-style-type: none;    
-        li {
-            button {
-                width: 20px;
-                border: none;
-                border-radius: 100%;
-                width: 20px;
-                height: 20px;
-                background-color: black;
-            }
+    .slick-list {
+        .draggable {
+            color: white;
         }
     }
 }
