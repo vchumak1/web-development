@@ -1,0 +1,38 @@
+.feedback {
+    padding-bottom: 71px;
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 102px;
+    }
+
+    &__img {
+        display: flex;
+        align-items: flex-start;
+        margin-right: 62px;
+        height: 90%;
+    }
+
+    &-content {
+        &__name {
+            color: #0d0d0d;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        &__counter {
+            margin-top: 10px;
+            color: #646464;
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        &__descr {
+            margin-top: 19px;
+            color: #0d0d0d;
+            font-size: 16px;
+            font-weight: 300;
+        }
+    }
+}
