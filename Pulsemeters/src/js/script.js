@@ -73,7 +73,7 @@ document.querySelector('.prev').addEventListener("click", function () {
       });
     });
 
-
+    //forms validation
     function validateForms (form) {
       $(form).validate({
         rules: {
@@ -106,6 +106,8 @@ document.querySelector('.prev').addEventListener("click", function () {
     validateForms('#order form');
 
   });
+
+  $('input[name=phone]').mask("+7(999) 999-9999");
 
 
   /*     $(".slick-initialized").css("color", "transparent");
