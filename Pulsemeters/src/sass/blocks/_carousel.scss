@@ -4,6 +4,12 @@
         position: relative;
         width: 750px;
         margin: 0 auto;
+        div {
+            img {
+                height: 422px;
+                margin: 0 auto;
+            }
+        }
     }
     .slick-prev, .slick-next {
         position: absolute;
