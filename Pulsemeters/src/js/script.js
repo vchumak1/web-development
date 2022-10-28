@@ -1,4 +1,3 @@
-"use strict";
 
 /* const slider = tns({
     container: '.carousel__inner',
@@ -139,11 +138,13 @@ $(document).ready(function () {
     }
   });
 
-  $("a[href^='#'").click(function() {
+  $("a[href='#up'").click(function() {
     const _href = $(this).attr("href");
     $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
     return false;
   });
+
+  new WOW().init();
 
 });
 

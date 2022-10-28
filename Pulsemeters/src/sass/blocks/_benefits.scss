@@ -14,6 +14,10 @@
             img {
                 display: block;
                 margin: 0 auto;
+                animation: heartbeat 1.5s ease infinite;
+                &:hover {
+                    animation-play-state: paused;
+                }
             }
             .benefits-icons__subtitle {
                 color: #0d0d0d;
