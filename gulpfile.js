@@ -12,14 +12,14 @@ const htmlmin = require('gulp-htmlmin');
 gulp.task('server', function() {
     browserSync.init({
         server: {
-            baseDir: "Pulsemeters/dist"
+            baseDir: "MyPortfolio/dist"
         }
     });
-    gulp.watch("Pulsemeters/src/*.html").on("change", browserSync.reload);  
+    gulp.watch("MyPortfolio/src/*.html").on("change", browserSync.reload);  
 });
 
 gulp.task('styles', function() {
-    return gulp.src("Pulsemeters/src/sass/**/*.+(scss|sass)")
+    return gulp.src("MyPortfolio/src/sass/**/*.+(scss|sass)")
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(rename({
             prefix: "",
@@ -29,46 +29,46 @@ gulp.task('styles', function() {
 			cascade: false
 		}))
         .pipe(cleanCSS({compatibility: 'ie8'}))
-        .pipe(gulp.dest("Pulsemeters/dist/css"))
+        .pipe(gulp.dest("MyPortfolio/dist/css"))
         .pipe(browserSync.stream());
 });
 
 gulp.task('watch', function() {
-    gulp.watch('Pulsemeters/src/**/*.+(scss|sass|css)', gulp.parallel("styles"));
-    gulp.watch("Pulsemeters/src/*.html").on("change", gulp.parallel('html'));  
+    gulp.watch('MyPortfolio/src/**/*.+(scss|sass|css)', gulp.parallel("styles"));
+    gulp.watch("MyPortfolio/src/*.html").on("change", gulp.parallel('html'));  
 });
 
 gulp.task('html', function() {
-    return gulp.src("Pulsemeters/src/*.html")
+    return gulp.src("MyPortfolio/src/*.html")
         .pipe(htmlmin({ collapseWhitespace: true }))
-        .pipe(gulp.dest('Pulsemeters/dist/'));
+        .pipe(gulp.dest('MyPortfolio/dist/'));
 });
 
 gulp.task('scripts', function() {
-    return gulp.src("Pulsemeters/src/js/**/*.js")
-        .pipe(gulp.dest('Pulsemeters/dist/js'));
+    return gulp.src("MyPortfolio/src/js/**/*.js")
+        .pipe(gulp.dest('MyPortfolio/dist/js'));
 });
 
 gulp.task('icons', function() {
-    return gulp.src("Pulsemeters/src/icons/**/*")
-        .pipe(gulp.dest('Pulsemeters/dist/icons'));
+    return gulp.src("MyPortfolio/src/icons/**/*")
+        .pipe(gulp.dest('MyPortfolio/dist/icons'));
 });
 
 gulp.task('mailer', function() {
-    return gulp.src("Pulsemeters/src/mailer/**/*")
-        .pipe(gulp.dest('Pulsemeters/dist/mailer'));
+    return gulp.src("MyPortfolio/src/mailer/**/*")
+        .pipe(gulp.dest('MyPortfolio/dist/mailer'));
 });
 
 gulp.task('images', function() {
-    return gulp.src("Pulsemeters/src/img/**/*")
+    return gulp.src("MyPortfolio/src/img/**/*")
         .pipe(imagemin())
-        .pipe(gulp.dest('Pulsemeters/dist/img'));
+        .pipe(gulp.dest('MyPortfolio/dist/img'));
 });
 
 gulp.task('fonts', function() {
-    return gulp.src("Pulsemeters/src/fonts/**/*")
+    return gulp.src("MyPortfolio/src/fonts/**/*")
         .pipe(imagemin())
-        .pipe(gulp.dest('Pulsemeters/dist/fonts'));
+        .pipe(gulp.dest('MyPortfolio/dist/fonts'));
 });
 
 
