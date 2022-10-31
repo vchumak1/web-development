@@ -1,14 +1,53 @@
 .blocks-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(100px, auto));
-    grid-auto-rows: repeat(auto-fit, minmax(100px, auto));
+    grid-template-columns: repeat(3, minmax(100px, 350px));
+    grid-template-rows: repeat(3, minmax(100px, auto));
+    grid-auto-rows: minmax(100px, auto);
+    justify-content: center;
     gap: 20px;
+    grid-template-areas: 
+        "header header message"
+        "blog blog message"
+        "footer footer footer";
 
     &__item {
         background-color: blue;
         color: #fff;
         text-align: center;
         border: 2px solid black;
+    }
+/*     #first {
+        grid-column: 1 / 3;
+    }
+    #second {
+        grid-row: 3 / 4;
+        grid-column: 2;
+    }
+    #third {
+        grid-row: 1 / 4;
+        grid-column: 3;
+    } */
+/* 
+    #first {
+        align-self: start;
+    } */
+
+    #header {
+        grid-area: header;
+    }
+    #blog {
+        grid-area: blog;
+    }
+    #message {
+        grid-area: message;
+    }
+    #footer {
+        grid-area: footer;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+    .orange {
+        background-color: orange;
     }
 }
