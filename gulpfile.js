@@ -36,9 +36,9 @@ gulp.task('styles', function() {
 gulp.task('watch', function() {
     gulp.watch('MyPortfolio/src/**/*.+(scss|sass|css)', gulp.parallel("styles"));
     gulp.watch("MyPortfolio/src/*.html").on("change", gulp.parallel('html'));
-    gulp.watch("src/js/**/*.js").on("change", gulp.parallel("scripts"));
-    gulp.watch("src/icons/**/*").on('all', gulp.parallel('icons'));
-    gulp.watch("scr/img/**/*").on('all', gulp.parallel('images'));  
+    gulp.watch("MyPortfolio/src/js/**/*.js").on("change", gulp.parallel("scripts"));
+    gulp.watch("MyPortfolio/src/icons/**/*").on('all', gulp.parallel('icons'));
+    gulp.watch("MyPortfolio/src/img/**/*").on('all', gulp.parallel('images'));  
 });
 
 gulp.task('html', function() {
