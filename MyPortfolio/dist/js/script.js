@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
         menu.classList.toggle("active");
         hamburger.classList.toggle("active");
     });
-    close.addEventListener("click",() => {
+    close.addEventListener("click", () => {
         menu.classList.remove("active");
         hamburger.classList.remove("active");
     });
@@ -22,5 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
             menu.classList.remove("active");
             hamburger.classList.remove("active");
         });
+    });
+
+    const counters = document.querySelectorAll(".tools-visual__percent"),
+        lines = document.querySelectorAll(".tools-visual__indicator span");
+
+    counters.forEach((item, i) => {
+        lines[i].style.width = item.innerHTML;
     });
 });
