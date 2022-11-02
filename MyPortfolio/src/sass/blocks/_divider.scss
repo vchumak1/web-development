@@ -1,10 +1,14 @@
-.about, .resume, .tools {
-    &__divider {
+/* .about, .resume, .tools, .portfolio, .price */
+.divider {
+    width: 60px;
+    height: 3px;
+    background-color: $main_color;
+    margin-top: 0px;
+    &__section-divider {
         width: 60px;
         height: 3px;
         background-color: $main_color;
-        margin-top: 0px;
+        margin: 0 auto;
+        margin-top: 20px;
     }
 }
-
-

@@ -1,0 +1,38 @@
+.price {
+    padding-top: 60px;
+    .container {
+        padding: 0 51px 0 51px;
+    }
+    &__column {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        justify-content: space-between;
+        margin-top: 60px;
+    }
+    &__content-wrapper {
+        display: grid;
+        grid-template-columns: auto;
+        margin-bottom: 15px;
+    }
+    &__column-title {
+        position: relative;
+        grid-column: 1/4;
+        display: flex;
+        justify-content: space-between;
+        @include before_circle;
+        &:before {
+            content: '';
+            background-color: $main_color;
+            width: 15px;
+            height: 15px;
+            left: -30px;
+            top: 2px;
+        }
+    }
+    &__column-descr {
+        grid-column: 1/4;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 18px;
+    }
+}
