@@ -7,7 +7,6 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
-    z-index: 11;
     cursor: pointer;
     span {
         transition: all 0.6s;
@@ -31,11 +30,13 @@
                 top: 0;
                 transform: translateY(-50%);
                 transform: rotate(45deg);
+                background-color: transparent;
             }
             &:nth-child(1) {
                 width: 35px;
                 transform: translateY(-50%);
                 transform: rotate(-45deg);
+                background-color: transparent;
             }
         }
     }

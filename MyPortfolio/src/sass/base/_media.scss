@@ -6,6 +6,58 @@
     .sidepanel {
         display: none;
     }
+    .resume {
+        padding: 40px 0 0 0;
+        .title {
+           &__section-subtitle {
+            margin-top: 20px;
+            line-height: 36px;
+           }
+        }
+        .divider {
+            &__section-divider {
+                margin-top: 15px;
+            }
+        }
+        &__wrapper {
+            padding: 0;
+            margin-top: 40px;
+            grid-template-columns: 1fr;
+            row-gap: 40px;
+        }
+    }
+    .tools {
+        padding: 40px 0 0 0;
+        .title {
+            &__section-subtitle {
+                font-size: 23px;
+                margin-top: 20px;
+                line-height: 36px;
+            }
+        }
+        .divider {
+            &__section-divider {
+                margin-top: 15px;
+            }
+        }
+        &__column {
+            margin-top: 20px;
+            grid-template-columns: repeat(3, 263px);
+            justify-content: center;
+        }
+        &-visual {
+            padding-top: 40px;
+            &__column {
+                grid-template-columns: repeat(3, 293px);
+                justify-content: center;
+                gap: 40px;
+                row-gap: 40px;
+            }
+            &__indicator {
+                width: 100%;
+            }
+        }
+    }
 }
 
 @media (max-width: 1200px) {
@@ -25,6 +77,58 @@
             &-item {
                 grid-template-columns: 40px 195px;
                 column-gap: 15px;
+            }
+        }
+    }
+    .resume {
+        padding: 40px 0 0 0;
+        .title {
+           &__section-subtitle {
+            margin-top: 20px;
+            line-height: 36px;
+           }
+        }
+        .divider {
+            &__section-divider {
+                margin-top: 15px;
+            }
+        }
+        &__wrapper {
+            padding: 0;
+            margin-top: 40px;
+            grid-template-columns: 1fr;
+            row-gap: 40px;
+        }
+    }
+    .tools {
+        padding: 40px 0 0 0;
+        .title {
+            &__section-subtitle {
+                font-size: 23px;
+                margin-top: 20px;
+                line-height: 36px;
+            }
+        }
+        .divider {
+            &__section-divider {
+                margin-top: 15px;
+            }
+        }
+        &__column {
+            margin-top: 20px;
+            grid-template-columns: repeat(3, 263px);
+            justify-content: center;
+        }
+        &-visual {
+            padding-top: 40px;
+            &__column {
+                grid-template-columns: repeat(2, 350px);
+                justify-content: center;
+                gap: 40px;
+                row-gap: 40px;
+            }
+            &__indicator {
+                width: 100%;
             }
         }
     }
@@ -60,6 +164,57 @@
             &-item {
                 column-gap: 20px;
                 grid-template-columns: 40px 320px;
+            }
+        }
+    }
+    .resume {
+        padding: 40px 0 0 0;
+        .title {
+           &__section-subtitle {
+            margin-top: 20px;
+            line-height: 36px;
+           }
+        }
+        .divider {
+            &__section-divider {
+                margin-top: 15px;
+            }
+        }
+        &__wrapper {
+            padding: 0;
+            margin-top: 40px;
+            grid-template-columns: 1fr;
+            row-gap: 40px;
+        }
+    }
+    .tools {
+        padding: 40px 0 0 0;
+        .title {
+            &__section-subtitle {
+                font-size: 23px;
+                margin-top: 20px;
+                line-height: 36px;
+            }
+        }
+        .divider {
+            &__section-divider {
+                margin-top: 15px;
+            }
+        }
+        &__column {
+            margin-top: 20px;
+            grid-template-columns: repeat(2, 263px);
+            justify-content: center;
+        }
+        &-visual {
+            padding-top: 40px;
+            &__column {
+                grid-template-columns: 1fr;
+                gap: 0;
+                row-gap: 40px;
+            }
+            &__indicator {
+                width: 100%;
             }
         }
     }
@@ -101,6 +256,56 @@
             }
         }
     }
+    .resume {
+        padding: 40px 0 0 0;
+        .title {
+           &__section-subtitle {
+            margin-top: 20px;
+            line-height: 36px;
+           }
+        }
+        .divider {
+            &__section-divider {
+                margin-top: 15px;
+            }
+        }
+        &__wrapper {
+            padding: 0;
+            margin-top: 40px;
+            grid-template-columns: 1fr;
+            row-gap: 40px;
+        }
+    }
+    .tools {
+        padding: 40px 0 0 0;
+        .title {
+            &__section-subtitle {
+                font-size: 23px;
+                margin-top: 20px;
+                line-height: 36px;
+            }
+        }
+        .divider {
+            &__section-divider {
+                margin-top: 15px;
+            }
+        }
+        &__column {
+            margin-top: 20px;
+            grid-template-columns: repeat(2, 263px);
+        }
+        &-visual {
+            padding-top: 40px;
+            &__column {
+                grid-template-columns: 1fr;
+                gap: 0;
+                row-gap: 40px;
+            }
+            &__indicator {
+                width: 100%;
+            }
+        }
+    }
 }
 
 
@@ -125,10 +330,6 @@
     }
 
     .menu {
-        &__close {
-            display: none;
-        }
-
         &__block {
             width: 250px;
             padding-left: 20px;
@@ -154,6 +355,56 @@
             &-item {
                 column-gap: 20px;
                 grid-template-columns: 40px 200px;
+            }
+        }
+    }
+    .resume {
+        padding: 40px 0 0 0;
+        .title {
+           &__section-subtitle {
+            margin-top: 20px;
+            line-height: 36px;
+           }
+        }
+        .divider {
+            &__section-divider {
+                margin-top: 15px;
+            }
+        }
+        &__wrapper {
+            padding: 0;
+            margin-top: 40px;
+            grid-template-columns: 1fr;
+            row-gap: 40px;
+        }
+    }
+    .tools {
+        padding: 40px 0 0 0;
+        .title {
+            &__section-subtitle {
+                font-size: 23px;
+                margin-top: 20px;
+                line-height: 36px;
+            }
+        }
+        .divider {
+            &__section-divider {
+                margin-top: 15px;
+            }
+        }
+        &__column {
+            margin-top: 20px;
+            grid-template-columns: 1fr;
+        }
+        &-visual {
+            padding-top: 40px;
+            &__column {
+                grid-template-columns: 1fr;
+                gap: 0;
+                row-gap: 40px;
+            }
+            &__indicator {
+                width: 100%;
             }
         }
     }
