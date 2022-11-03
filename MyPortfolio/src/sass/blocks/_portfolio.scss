@@ -1,5 +1,8 @@
 .portfolio {
     padding-top: 120px;
+    .active {
+        text-decoration: none;
+    }
     &__wrapper {
         margin-top: 60px;
         display: grid;
