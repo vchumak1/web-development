@@ -1,0 +1,24 @@
+.button {
+        display: block;
+        background-color: $color-red;
+        border-radius: 20px;
+        border: none;
+        color: #ffffff;
+        text-align: center;
+        text-transform: uppercase;
+    &_promo {
+        width: 160px;
+        height: 45px;
+        font-size: 12px;
+        font-weight: 400;
+        margin-left: 15px;
+    }
+    &_promo-bottom {
+        width: 230px;
+        height: 57px;
+        font-size: 15px;
+        font-weight: 700;
+        margin: 0 auto;
+        margin-top: 39px;
+    }
+} 

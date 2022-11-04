@@ -1,0 +1,119 @@
+@media (max-width: 1200px) {
+    .container {
+        width: 992px;
+    }
+    .promo {
+        &__title {
+            font-size: 66px;
+        }
+        &-menu {
+            flex-direction: column;
+            justify-content: space-between;
+            &__container {
+                margin-top: 20px;
+                &__item {
+                    font-size: 14px;
+                }
+            }
+            &__contacts {
+                margin-top: 20px;
+            }
+        }
+        &__header {
+            margin-top: 58px;
+        }
+        &__descr-container {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        &__descr-block {
+            margin: 20px 40px 0px 40px;
+        }
+    }
+}
+
+@media(max-width: 992px) {
+    .container {
+        width: 768px;
+    }
+    .promo {
+        &__title {
+            font-size: 53px;
+        }
+        &__subtitle {
+            font-size: 33px;
+        }
+    }
+}
+
+@media(max-width: 768px) {
+    .container {
+        width: 576px;
+    }
+    .promo {
+        padding-top: 10px;
+        &-menu {
+            .hamburger {
+                display: block;
+            }
+            &__container {
+            display: none;
+            }
+            &__phone {
+                font-size: 12px;
+            }
+        }
+        &__header {
+            font-size: 20px;
+        }
+        &__title {
+            font-size: 55px;
+            margin-top: 20px;
+        }
+        &__subtitle {
+            margin-top: 20px;
+            font-size: 48px;
+            line-height: 42px;
+        }
+        &__descr-block {
+            margin: 20px 0px 20px 0px;
+        }
+    }
+}
+
+
+@media (max-width: 576px) {
+    .container {
+        width: 100%;
+        padding: 0 10px;
+    }
+    .promo {
+        padding-top: 10px;
+        &-menu {
+            .hamburger {
+                display: block;
+            }
+            &__container {
+            display: none;
+            }
+            &__phone {
+                font-size: 12px;
+            }
+        }
+        &__header {
+            font-size: 20px;
+        }
+        &__title {
+            font-size: 46px;
+            margin-top: 20px;
+        }
+        &__subtitle {
+            margin-top: 20px;
+            font-size: 33px;
+            line-height: 37px;
+        }
+        &__descr-block {
+            margin: 20px 0px 20px 0px;
+        }
+    }
+}
