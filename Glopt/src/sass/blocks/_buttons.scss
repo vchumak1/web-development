@@ -6,7 +6,7 @@
         color: #ffffff;
         text-align: center;
         text-transform: uppercase;
-    &_promo {
+    &_promo, &_footer {
         width: 160px;
         height: 45px;
         font-size: 12px;
@@ -40,5 +40,14 @@
         bottom: -22px;
         width: 180px;
         height: 45px;
+    }
+    &_questions {
+        width: 180px;
+        height: 45px;
+        margin-top: 17px;
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: 400;
+        text-transform: uppercase;
     }
 } 

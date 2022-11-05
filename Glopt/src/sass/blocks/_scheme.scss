@@ -1,0 +1,23 @@
+.scheme {
+    padding: 51px 0 46px 0;
+    background-color: #f3f3f3;
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        text-align: center;
+        margin-top: 28px;
+    }
+    &__step {
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        margin-top: 26px;
+    }
+    &__img {
+        height: 50px;
+        width: 50px;
+        display: block;
+        margin: 0 auto;
+    }
+}

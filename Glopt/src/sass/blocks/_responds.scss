@@ -1,0 +1,13 @@
+.responds {
+    padding: 51px 0 65px 0;
+    &__carousel {
+        font-size: 15px;
+        font-weight: 500;
+        width: 100%;
+        min-height: 50px;
+        text-align: center;
+        margin: 31px auto;
+        background-color: $color-red;
+        color: #fff;
+    }
+}

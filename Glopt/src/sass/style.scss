@@ -29,6 +29,10 @@
 @import "blocks/prices";
 @import "blocks/consultation";
 @import "blocks/managers";
+@import "blocks/scheme";
+@import "blocks/responds";
+@import "blocks/questions";
+@import "blocks/footer";
 
 
 
@@ -38,3 +42,5 @@
 @import "blocks/media/media-agent";
 @import "blocks/media/prices-media";
 @import "blocks/media/consultation-media";
+@import "blocks/media/_questions-media";
+@import "blocks/media/footer";
