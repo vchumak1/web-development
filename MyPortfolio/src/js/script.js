@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     links.forEach((item, index) => {
-            if (index > 1) {
+            if (index > 2) {
                 item.addEventListener("mouseenter", (e) => {
                     e.preventDefault();
                     item.classList.toggle("active");
