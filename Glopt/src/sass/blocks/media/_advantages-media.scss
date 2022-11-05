@@ -1,0 +1,13 @@
+@media (max-width: 576px) {
+    .container {
+        width: 100%;
+    }
+    .advantages {
+        &__wrapper {
+            flex-direction: column;
+        }
+        &__items {
+            width: 100%;
+        }
+    }
+}

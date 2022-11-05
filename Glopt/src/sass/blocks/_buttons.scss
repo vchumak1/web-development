@@ -21,4 +21,24 @@
         margin: 0 auto;
         margin-top: 39px;
     }
+    &_prices {
+        bottom: 25px;
+        width: 160px;
+        height: 45px;
+        font-size: 12px;
+        font-weight: 400;
+        margin: 0 auto;
+        margin-top: 25px;
+        &.active {
+            margin-top: 45px;
+        }
+    }
+    &_consultation {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -22px;
+        width: 180px;
+        height: 45px;
+    }
 } 

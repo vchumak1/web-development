@@ -1,0 +1,17 @@
+.job {
+    padding: 51px 0 57px 0;
+    &__items {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 37px;
+        &-box {
+            text-align: center;
+            width: 32%;
+        }
+        &-img {
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 28px;
+        }
+    }
+}

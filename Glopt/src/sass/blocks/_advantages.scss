@@ -1,0 +1,28 @@
+.advantages {
+    padding-top: 58px;
+    background-color: #f3f3f3;
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 38px;
+    }
+    &__items-box {
+        display: flex;
+        flex-direction: column;
+    }
+    &__items {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 46%;
+        margin-bottom: 36px;
+    }
+    &__items-img {
+        display: block;
+        width: 62px;
+        height: 58px;
+        margin-right: 17px;
+        
+    }
+}

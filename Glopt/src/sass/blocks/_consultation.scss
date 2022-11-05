@@ -1,0 +1,28 @@
+.consultation {
+    padding-bottom: 58px;
+    &__form {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 166px;
+        border: 1px solid #898989;
+        margin-top: 71px;
+        .section__round_red {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -36%
+        }
+        input {
+            margin-right: 5px;
+            width: 280px;
+            height: 45px;
+            border-radius: 25px;
+            border: 1px solid #898989;
+            font-size: 15px;
+            font-weight: 300;
+            padding: 0 30px;
+        }
+    }
+}

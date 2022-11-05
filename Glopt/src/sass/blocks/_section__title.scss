@@ -1,0 +1,14 @@
+.section__title {
+    color: #2e2e2e;
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    &_white {
+        color: #ffffff;
+        font-size: 26px;
+        font-weight: 700;
+        text-align: center;
+        margin-top: 20px;
+    }
+}

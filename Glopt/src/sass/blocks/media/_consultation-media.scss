@@ -1,0 +1,32 @@
+
+@media (max-width: 768px) {
+    .container {
+        width: 576px;
+    }
+    .consultation {
+        &__form {
+            flex-direction: column;
+            min-height: 250px;
+            margin-top: 120px;
+            input {
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        width: 100%;
+    }
+    .consultation {
+        &__form {
+            flex-direction: column;
+            min-height: 250px;
+            margin-top: 120px;
+            input {
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
