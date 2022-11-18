@@ -1,11 +1,7 @@
 'use strict';
 
 function replicate(times, number) {
-	if (times <= 0) {
-        return [];
-    } else if (times != 0){
-        return `${number},${replicate(times - 1, number)}`.split(',').filter(item => item == number).map(item => item = Number.parseInt(item));
-    }
+    return times > 0 ? [number].concat(replicate(times - 1, number)) : [];
 }
 
 console.log(replicate(3, 9));
