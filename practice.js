@@ -15,17 +15,17 @@ function expandedForm(num) {
 
     numArr.forEach(function(num, ind, arr) {
         if (ind == 0) {
-            for(let i = 1; i < arr.length - 1; i++) {
-                subStr += 0;
-            }
-            str = `${num}${subStr}`;
-            str.substring(0, num.length - 1);
-        } else if (ind > 0 && num != 0) {
-            subStr += ` + ${num}`;
-            for (let i = ind; i < arr.length - ind; i++) {
+            str = num;
+            for (let i = 0; i < arr.length - 1; i++) {
                 subStr += 0;
             }
             str += subStr;
+        } else if (ind > 0 && num != 0) {
+            subStr = '';
+            for  (let i = ind + 2; i - arr.length - 1; i++) {
+                subStr += 0;
+            }
+            str += ` + ${num}${subStr}`;
         }
     });
 
@@ -33,4 +33,4 @@ function expandedForm(num) {
 
 }
 
-console.log(expandedForm(1200));
+console.log(expandedForm(1023));
