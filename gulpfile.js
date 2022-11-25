@@ -12,14 +12,14 @@ const htmlmin = require('gulp-htmlmin');
 gulp.task('server', function() {
     browserSync.init({
         server: {
-            baseDir: "Martian/dist"
+            baseDir: "Food/dist"
         }
     });
-    gulp.watch("Martian/src/*.html").on("change", browserSync.reload);  
+    gulp.watch("Food/src/*.html").on("change", browserSync.reload);  
 });
 
 gulp.task('styles', function() {
-    return gulp.src("Martian/src/sass/**/*.+(scss|sass)")
+    return gulp.src("Food/src/sass/**/*.+(scss|sass)")
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(rename({
             prefix: "",
@@ -29,53 +29,53 @@ gulp.task('styles', function() {
 			cascade: false
 		}))
         .pipe(cleanCSS({compatibility: 'ie8'}))
-        .pipe(gulp.dest("Martian/dist/css"))
+        .pipe(gulp.dest("Food/dist/css"))
         .pipe(browserSync.stream());
 });
 
 gulp.task('watch', function() {
-    gulp.watch('Martian/src/**/*.+(scss|sass|css)', gulp.parallel("styles"));
-    gulp.watch("Martian/src/*.html").on("change", gulp.parallel('html'));
-    gulp.watch("Martian/src/js/**/*.js").on("change", gulp.parallel("scripts"));
-    gulp.watch("Martian/src/icons/**/*").on('all', gulp.parallel('icons'));
-    gulp.watch("Martian/src/img/**/*").on('all', gulp.parallel('images'));  
+    gulp.watch('Food/src/**/*.+(scss|sass|css)', gulp.parallel("styles"));
+    gulp.watch("Food/src/*.html").on("change", gulp.parallel('html'));
+    gulp.watch("Food/src/js/**/*.js").on("change", gulp.parallel("scripts"));
+    gulp.watch("Food/src/icons/**/*").on('all', gulp.parallel('icons'));
+    gulp.watch("Food/src/img/**/*").on('all', gulp.parallel('images'));  
 });
 
 gulp.task('html', function() {
-    return gulp.src("Martian/src/*.html")
+    return gulp.src("Food/src/*.html")
         .pipe(htmlmin({ collapseWhitespace: true }))
-        .pipe(gulp.dest('Martian/dist/'));
+        .pipe(gulp.dest('Food/dist/'));
 });
 
 gulp.task('scripts', function() {
-    return gulp.src("Martian/src/js/**/*.js")
-        .pipe(gulp.dest('Martian/dist/js'))
+    return gulp.src("Food/src/js/**/*.js")
+        .pipe(gulp.dest('Food/dist/js'))
         .pipe(browserSync.stream());
 });
 
 gulp.task('icons', function() {
-    return gulp.src("Martian/src/icons/**/*")
-        .pipe(gulp.dest('Martian/dist/icons'))
+    return gulp.src("Food/src/icons/**/*")
+        .pipe(gulp.dest('Food/dist/icons'))
         .pipe(browserSync.stream());
 });
 
 gulp.task('mailer', function() {
-    return gulp.src("Martian/src/mailer/**/*")
-        .pipe(gulp.dest('Martian/dist/mailer'))
+    return gulp.src("Food/src/mailer/**/*")
+        .pipe(gulp.dest('Food/dist/mailer'))
         .pipe(browserSync.stream());
 });
 
 gulp.task('images', function() {
-    return gulp.src("Martian/src/img/**/*")
+    return gulp.src("Food/src/img/**/*")
         .pipe(imagemin())
-        .pipe(gulp.dest('Martian/dist/img'))
+        .pipe(gulp.dest('Food/dist/img'))
         .pipe(browserSync.stream());
 });
 
 gulp.task('fonts', function() {
-    return gulp.src("Martian/src/fonts/**/*")
+    return gulp.src("Food/src/fonts/**/*")
         .pipe(imagemin())
-        .pipe(gulp.dest('Martian/dist/fonts'))
+        .pipe(gulp.dest('Food/dist/fonts'))
         .pipe(browserSync.stream());
 });
 
