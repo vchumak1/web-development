@@ -50,7 +50,21 @@ document.addEventListener('DOMContentLoaded', () => {
         movieList = document.querySelector('.promo__interactive-list'),
         addForm = document.querySelector('.add'),
         addInput = addForm.querySelector('.adding__input'),
-        checkbox = addForm.querySelector('[type="checkbox"]');
+        checkbox = addForm.querySelector('[type="checkbox"]'),
+        menu = document.querySelector('.promo__menu-list'),
+        menuContent = document.querySelectorAll('.promo__menu-item');
+
+    //удаляем активность со всех элементов меню
+    function removeMenuActivity() {
+        menuContent.forEach(item => item.classList.remove('promo__menu-item_active'));
+    }
+
+   //добавляем активность для первого элемента меню.
+    function showMenuActivity(i = 0) {
+        menuContent[i].classList.add('promo__menu-item_active');
+    }
+
+
 
     //обрабатываем события в форме
     addForm.addEventListener('submit', (e) => {
@@ -125,4 +139,19 @@ document.addEventListener('DOMContentLoaded', () => {
     deleteAdv(adv);
     makeChanges();
     createMovieList(movieDB.movies, movieList);
+    removeMenuActivity();
+    showMenuActivity();
+
+    //делегируем события с помощью родительского класса на дочерние и переопределяем активность пунктов меню
+    menu.addEventListener('click', e => {
+        const target = e.target;
+        if(target && target.classList.contains('promo__menu-item')) {
+            menuContent.forEach((item, i) => {
+                if (item == target) {
+                    removeMenuActivity();
+                    showMenuActivity(i);
+                }
+            });
+        }
+    });
 });
