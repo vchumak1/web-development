@@ -46,21 +46,21 @@ document.addEventListener('DOMContentLoaded', () => {
     function getTimeRemaining(endtime) {
         //получаем разницу в миллисекундах между датой окончанчания события и текущей датой и временем
         const t = Date.parse(endtime) - Date.parse(new Date()),
-              days = Math.floor(t / (1000 * 60 * 60 * 24)),
-              //чтобы часы, минуты и секунды не превышали значений 24, 60 и 60, производится деление по остатку на 24 и 60
-              hours = Math.floor((t / (1000 * 60 * 60) % 24)),
-              minutes = Math.floor((t / 1000 / 60 ) % 60),
-              seconds = Math.floor((t / 1000) % 60);
+            days = Math.floor(t / (1000 * 60 * 60 * 24)),
+            //чтобы часы, минуты и секунды не превышали значений 24, 60 и 60, производится деление по остатку на 24 и 60
+            hours = Math.floor((t / (1000 * 60 * 60) % 24)),
+            minutes = Math.floor((t / 1000 / 60) % 60),
+            seconds = Math.floor((t / 1000) % 60);
 
         return {
             'total': t,
             'days': days,
             'hours': hours,
             'minutes': minutes,
-            'seconds': seconds 
+            'seconds': seconds
         };
     }
-    //функция помощник, добавляет к таймеру ноль, если число меньше 10
+    //функция помощник, добавляет к таймеру ноль, если число меньше 10, если дата просрочена, то оставляет нули, чтобы не ползла вёрстка
     function getZero(num) {
         if (num >= 0 && num < 10) {
             return `0${num}`;
@@ -74,28 +74,84 @@ document.addEventListener('DOMContentLoaded', () => {
     function setClock(selector, endtime) {
         //получаем элементы со страницы, куда будем передавать информацию
         const timer = document.querySelector(selector),
-              days = timer.querySelector('#days'),
-              hours = timer.querySelector('#hours'),
-              minutes = timer.querySelector('#minutes'),
-              seconds = timer.querySelector('#seconds'),
-              //определяем время запуска функции updateClock
-              timeInterval = setInterval(updateClock, 1000);
+            days = timer.querySelector('#days'),
+            hours = timer.querySelector('#hours'),
+            minutes = timer.querySelector('#minutes'),
+            seconds = timer.querySelector('#seconds'),
+            //определяем время запуска функции updateClock
+            timeInterval = setInterval(updateClock, 1000);
         //убираем мигание в браузере. Мигание появилось в результате того, что setInterval занимает 1 секунду
         updateClock();
 
-            //создаем функцию, которая будет обновлять наш таймер на странице
-            function updateClock() {
-                const t = getTimeRemaining(endtime);
-                days.innerHTML = getZero(t.days);
-                hours.innerHTML = getZero(t.hours); 
-                minutes.innerHTML = getZero(t.minutes);
-                seconds.innerHTML = getZero(t.seconds);
-                    
-                if (t.total <= 0) {
-                    clearInterval(timeInterval);
-                }
+        //создаем функцию, которая будет обновлять наш таймер на странице
+        function updateClock() {
+            const t = getTimeRemaining(endtime);
+            days.innerHTML = getZero(t.days);
+            hours.innerHTML = getZero(t.hours);
+            minutes.innerHTML = getZero(t.minutes);
+            seconds.innerHTML = getZero(t.seconds);
+
+            if (t.total <= 0) {
+                clearInterval(timeInterval);
             }
+        }
     }
     setClock('.timer', deadline);
+
+    //создаем модальное окно
+    const modalTrigger = document.querySelectorAll("[data-modal]"),
+        modal = document.querySelector('.modal'),
+        modalCloseBtn = modal.querySelector("[data-close]"),
+        modalTimerId = setTimeout(showModal, 10000);
+
+    function stopInterval() {
+        //реализуем функционал отключения таймера, если пользователь сам открыл модальное окно
+        clearInterval(modalTimerId);
+    }
+    function showModal() {
+        modal.classList.add('show', 'fade');
+        modal.classList.remove('hide');
+        //стиль, который не позволяет использовать прокрутку при открытом модальном окне
+        document.body.style.overflow = "hidden";
+        stopInterval();
+    }
+
+    modalTrigger.forEach(item => {
+        item.addEventListener('click', showModal);
+    });
+
+
+    function closeModal() {
+        modal.classList.add('hide');
+        modal.classList.remove('show', 'fade');
+        //возвращаем возможность прокрутки страницы при закрытии модального окна
+        document.body.style.overflow = "";
+        stopInterval();
+
+    }
+    modalCloseBtn.addEventListener('click', closeModal);
+
+    //реализуем закрытие модального окна при клике на подложку с помощью e.target
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    //реализуем возможность закрытия модального окна с помощью клавиши esc
+    document.addEventListener('keydown', (e) => {
+        if (e.code === 'Escape' && modal.classList.contains('show')) {
+            closeModal();
+        }
+    });
+    //реализуем открытие модального окна при прокрутке до конца страницы
+    function showModalByScroll() {
+        if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight - 1) {
+            showModal();
+            //убираем повторное появление модального окна при прокрутке страницы путем удаления обработчика событий
+            window.removeEventListener('scroll', showModalByScroll);
+        }
+    }
+    window.addEventListener('scroll', showModalByScroll);
 
 });
