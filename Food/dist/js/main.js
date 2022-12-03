@@ -108,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //реализуем функционал отключения таймера, если пользователь сам открыл модальное окно
         clearInterval(modalTimerId);
     }
+
     function showModal() {
         modal.classList.add('show', 'fade');
         modal.classList.remove('hide');
@@ -153,5 +154,89 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     window.addEventListener('scroll', showModalByScroll);
+
+    //создаем продуктовые карточки с помощью классов
+
+    class MenuCard {
+        //используем rest оператор ...classes для того, чтобы предусмотреть возможность расширения карточки
+        constructor(src, alt, title, descr, price, parentSelector, ...classes) {
+            this.src = src;
+            this.alt = alt;
+            this.title = title;
+            this.descr = descr;
+            this.price = price;
+            //this.classes это будет массив
+            this.classes = classes;
+            //получаем родительский элемент, куда будут помещаться наши карточки
+            this.parent = document.querySelector(parentSelector);
+            //зададим курс валют
+            this.transfer = 60;
+            //вызываем метод конвертации валют и обновляем свойство price
+            this.changeToUAH();
+        }
+        //создаем метод конвертации валют
+        changeToUAH() {
+            this.price = this.price * this.transfer;
+        }
+        //создаем метод вертски продуктовой карточки
+        render() {
+            const element = document.createElement('div');
+            //создаем защиту от пустого массива в результате работы rest оператора
+            if (this.classes.length == 0) {
+                this.element = 'menu__item';
+                element.classList.add(this.element);
+            } else {
+                this.classes.forEach(className => element.classList.add(className));
+                element.innerHTML = `
+                    <img src=${this.src} alt=${this.alt}>
+                    <h3 class="menu__item-subtitle">${this.title}</h3>
+                    <div class="menu__item-descr">${this.descr}</div>
+                    <div class="menu__item-divider"></div>
+                    <div class="menu__item-price">
+                        <div class="menu__item-cost">Цена:</div>
+                        <div class="menu__item-total"><span>${this.price}</span> руб/день</div>
+                    </div>`;
+            }
+            //помещаем классы в наш div
+
+            //помещаем созданный элемент на страницу
+            this.parent.append(element);
+        }
+    }
+    //создаем экземпляры класса без использования промежуточных переменных
+
+    new MenuCard(
+        "img/tabs/vegy.jpg",
+        "vegy",
+        'Меню "Фитнес"',
+        'Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!',
+        10,
+        //таким образом передаем селектор родительского элемента для размещения карточки, поставлены точки т.к. работает querySelector()
+        ".menu .container",
+        //тестируем работу rest оператора и проверяем дополнительные классы у карточки
+        "menu__item",
+        "big"
+    ).render();
+
+    new MenuCard(
+        "img/tabs/elite.jpg",
+        "elite",
+        'Меню “Премиум”',
+        'В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!',
+        15,
+        ".menu .container",
+        "menu__item"
+    ).render();
+
+    new MenuCard(
+        "img/tabs/post.jpg",
+        "post",
+        'Меню "Постное"',
+        'Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.',
+        5,
+        ".menu .container",
+        "menu__item"
+
+    ).render();
 
 });
