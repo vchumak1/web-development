@@ -1,0 +1,96 @@
+.promo {
+    .container {
+        display: flex;;
+    }
+    padding: 42px 142px 0 145px;
+    background-color: $grey;
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+    &__header {
+        display: block;
+        width: 658px;
+        font-family: 'Directo';
+        font-weight: 700;
+        font-size: 46px;
+        line-height: 55px;
+    }
+    &__descr {
+        display: block;
+        width: 466px;
+        margin-top: 20px;
+        font-family: 'FaberSansPro';
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 30px;
+        color: #8682A7;
+    }
+    &__input {
+        display: block;
+        position: relative;
+        width: 433px;
+        margin-top: 46px;
+        
+        #input__phone {
+            z-index: 0;
+            width: 100%;
+            background: #E8E5FB url("../icons/promo/smartphone.svg") no-repeat left;
+            background-position: 40px;
+            padding-left: 60px;
+            border-radius: 15px 15px 15px 50px;
+            border-width: 0;
+            height: 55px;
+        }
+        #input__button {
+            z-index: 10;
+            position: absolute;
+            width: 245px;
+            right: -90px;
+            height: 55px;
+            background: #5B45FF;
+            border-radius: 0px 50px 20px 70px;
+            border-width: 0;
+            font-family: 'FaberSansPro';
+            font-weight: 400;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+            &:hover {
+                background-color: $red;
+                transition: 0.4s all;
+            }
+        }
+    }
+    &__picture {
+        display: block;
+    }
+    &__picture-mobile {
+        display: none;
+    }
+    &__advantages {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 4px;
+        &-item {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 272px;
+            height: 69px;
+            background: #FFFFFF;
+            border-radius: 15px;
+        }
+        &-picture {
+            display: block;
+        }
+        &-descr {
+            width: 157px;
+            font-family: 'FaberSansPro';
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+            color: #6D698C;
+        }
+    }
+}

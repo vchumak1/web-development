@@ -1,0 +1,202 @@
+@media (max-width: 1400px) {
+    .promo {
+        padding: 42px 30px 0 30px;
+        &__header {
+            width: 605px;
+        }
+        &__picture {
+            width: 50%;
+        }
+        &__input {
+            margin-top: 22px;
+            width: 350px;
+        }
+        &__advantages-item {
+            width: 220px;
+        }
+        &__advantages {
+            margin-top: 4px;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .promo {
+        padding: 42px 30px 0 30px;
+        &__header {
+            width: 466px;
+            font-size: 28px;
+            line-height: 35px;
+        }
+        &__picture {
+            width: 50%;
+        }
+        &__input {
+            width: 350px;
+        }
+        &__advantages-item {
+            width: 220px;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .promo {
+        padding: 26px 10px 0px 10px;
+        &__picture {
+            display: none;
+        }
+        &__picture-mobile {
+            display: block;
+            margin: 0 auto;
+            margin-top: 22px;
+            width: 60%;
+
+        }
+        &__header {
+            font-size: 38px;
+            line-height: 48px;
+            width: 100%;
+            text-align: center;
+        }
+        &__descr {
+            width: 100%;
+            margin-top: 9px;
+            font-size: 20px;
+            line-height: 30px;
+            text-align: center;
+        }
+        &__input {
+            margin: 0 auto;
+            margin-top: 22px;
+            width: 430px;
+            #input__phone {
+                border-radius: 0px 50px 20px 70px;
+            }
+            #input__button {
+                right: -20px;
+                width: 190px;
+            }
+        }
+        &__advantages {
+            margin-top: 4px;
+            flex-wrap: wrap;
+            &-item {
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .promo {
+        padding: 26px 10px 0px 10px;
+        &__picture {
+            display: none;
+        }
+        &__picture-mobile {
+            display: block;
+            margin-top: 22px;
+            width: 70%;
+
+        }
+        &__header {
+            font-size: 38px;
+            line-height: 48px;
+            width: 100%;
+            text-align: center;
+        }
+        &__descr {
+            width: 100%;
+            margin-top: 9px;
+            font-size: 20px;
+            line-height: 30px;
+            text-align: center;
+        }
+        &__input {
+            margin: 0 auto;
+            margin-top: 22px;
+            #input__phone {
+                border-radius: 0px 50px 20px 70px;
+            }
+            #input__button {
+                right: 0;
+            }
+        }
+        &__advantages {
+            margin-top: 4px;
+            flex-wrap: wrap;
+            &-item {
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+@media(max-width: 576px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .promo {
+        padding: 26px 10px 0px 10px;
+        &__picture {
+            display: none;
+        }
+        &__picture-mobile {
+            display: block;
+            margin-top: 22px;
+
+        }
+        &__header {
+            font-size: 26px;
+            line-height: 40px;
+            width: 100%;
+            text-align: center;
+        }
+        &__descr {
+            width: 100%;
+            margin-top: 9px;
+            font-size: 16px;
+            line-height: 24px;
+            text-align: center;
+        }
+        &__input {
+            position: unset;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin: 0;
+            margin-top: 22px;
+            #input__phone {
+                position: unset;
+                width: 100%;
+                border-radius: 0px 50px 20px 70px;
+            }
+            #input__button {
+                margin-top: 10px;
+                position: unset;
+                width: 100%;
+            }
+        }
+        &__advantages {
+            margin-top: 43px;
+            flex-wrap: wrap;
+            &-item {
+                margin-top: 10px;
+            }
+        }
+    }
+}

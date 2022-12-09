@@ -1,0 +1,17 @@
+.menu {
+    margin: 0 auto;
+    &__wrapper {
+        padding: 12px 350px 12px 265px;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__item {
+        font-size: 16px;
+        color: #8682A7;
+        &:hover {
+            color: $blue;
+            transition: 0.2s all;
+            font-weight: bolder;
+        }
+    }
+}

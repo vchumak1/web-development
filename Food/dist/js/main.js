@@ -184,6 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
             //создаем защиту от пустого массива в результате работы rest оператора
             if (this.classes.length == 0) {
                 this.element = 'menu__item';
+                //помещаем класс в наш div
                 element.classList.add(this.element);
             } else {
                 this.classes.forEach(className => element.classList.add(className));
@@ -197,7 +198,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="menu__item-total"><span>${this.price}</span> руб/день</div>
                     </div>`;
             }
-            //помещаем классы в наш div
 
             //помещаем созданный элемент на страницу
             this.parent.append(element);

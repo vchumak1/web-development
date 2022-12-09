@@ -1,0 +1,28 @@
+//@import "libs/bootstrap-reboot.min";
+@import "base/fonts.scss";
+@import "base/variables";
+
+* {
+    font-family: "FaberSansPro", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.container {
+    width: 100%;
+}
+
+@import "blocks/contacts";
+@import "blocks/menu";
+@import "blocks/hamburger";
+@import "blocks/promo";
+@import "blocks/growth";
+
+
+@import "media/contacts_media";
+@import "media/menu_media";
+@import "media/promo_media";
+@import "media/growth_media";

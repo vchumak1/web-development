@@ -1,0 +1,79 @@
+.contacts {
+    padding: 20px 146px;
+    border: 1px solid #F5F4FF;
+    display: flex;
+    justify-content: center;
+    &__logo {
+        margin-top: 2px;
+        margin-right: 41px;
+    }
+    &__descr {
+        margin-top: 8px;
+        margin-right: 64px;
+        width: 126px;
+        color: #AFACC9;
+        font-size: 13px;
+        line-height: 18px;
+    }
+    &__social-wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-right: 56px;
+    }
+    &__social-item {
+        margin-right: 7px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border: 1px solid #E1DEFC;
+        border-radius: 12px;
+        a {
+            height: 16px;
+            text-align: center;
+            fill: $blue;
+        }
+        &:hover {
+            background-color: $blue;
+            transition: 0.4s all;
+            a {
+                fill: white;
+            }
+        }
+    }
+    &__phone {
+        font-family: 'Directo';
+        font-weight: 700;
+        font-size: 20px;
+        color: #2D2D2D;
+        margin-top: 11px;
+        margin-right: 28px;
+    }
+    &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 183px;
+        height: 50px;
+        top: 20px;
+        background: #2DBC7C;
+        border-radius: 15px 15px 15px 30px;
+        border-width: 0;
+        &-picture {
+            display: block;
+            margin-right: 12px;
+            fill: white;
+        }
+        &-descr {
+            font-size: 14px;
+            color: white;
+            font-weight: 500;
+        }
+        &:hover {
+            cursor: pointer;
+            background-color: $red;
+            transition: 0.4s all;
+        }
+    }
+}
