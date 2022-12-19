@@ -82,6 +82,7 @@
         line-height: 30px;
         color: #2D2D2D;
         &_down {
+            display: none;
             margin-top: 53px;
         }
         &_mobile {
@@ -90,11 +91,13 @@
     }
     &__subdescr-wrapper {
         width: 500px;
-        margin: 0 auto;
-        padding-top: 64px;
+        margin: 53px auto;
         display: flex;
         justify-content: space-around;
         &_mobile {
+            display: none;
+        }
+        &_tablet {
             display: none;
         }
     }
