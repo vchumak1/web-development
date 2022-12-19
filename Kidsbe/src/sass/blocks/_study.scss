@@ -1,0 +1,48 @@
+.study {
+    padding: 93px 162px 0 216px;
+    background-color: $grey;
+    &__title {
+        font-family: 'Directo';
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 50px;
+        text-align: center;
+        color: #2D2D2D;
+    }
+    &__subtitle {
+        margin-top: 24px;
+        font-family: 'FaberSansPro';
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 30px;
+        text-align: center;
+        color: #6D698C;
+    }
+    &__wrapper {
+        margin-top: 49px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    &__item {
+        width: 485px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+        margin-top: 50px;
+        &-descr {
+            margin-top: 40px;
+            font-family: 'FaberSansPro';
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 24px;
+            color: #6D698C;
+            justify-self: flex-end;
+        }
+        &-img_mobile {
+            display: none;
+        }
+    }
+
+}
