@@ -1,0 +1,42 @@
+.harmony {
+    padding: 51px 146px 0 146px;
+    background-color: $grey;
+    &__descr {
+        text-align: center;
+        &-box {
+            margin-top: 27px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        &-icon {
+            margin-right: 20px;
+        }
+        &-text {
+            margin-right: 40px;
+        }
+        &-title {
+            font-family: 'Directo';
+            font-weight: 700;
+            font-size: 36px;
+            line-height: 50px;
+            color: #2D2D2D;
+        }
+        &-subtitle {
+            margin-top: 16px;
+            font-family: 'FaberSansPro';
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 30px;
+            color: #2D2D2D;
+        }
+        &-paragraph {
+            margin-top: 53px;
+            font-family: 'FaberSansPro';
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 30px;
+            color: #2D2D2D;
+        }
+    }
+}

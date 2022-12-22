@@ -1,0 +1,98 @@
+.excercises {
+    padding: 70px 110px 0 146px;
+    background-color: $blue;
+    &__title {
+        font-family: 'Directo';
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 55px;
+        color: #FFFFFF;
+        span {
+            color: #FFCF3C;
+        }
+    }
+
+    &__subtitle {
+        margin-top: 26px;
+        font-family: 'FaberSansPro';
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 30px;
+        color: #FFFFFF;
+    }
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+    &__form {
+        margin-top: 26px;
+        width: 564px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        input {
+            border: none;
+        }
+        label {
+            font-family: 'FaberSansPro';
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 30px;
+            color: #FFFFFF;
+        }
+    }
+    &__name-box, &__phone-box, &__checkbox-box {
+        border: none;
+        display: flex;
+        flex-direction: column;
+    }
+    &__checkbox-box, #excercises__button {
+        margin-top: 40px;
+    }
+    #excercises__checkbox-label {
+        display: block;
+        width: 250px;
+        margin: 0;
+    }
+    #excercises__chekbox {
+        width: 8px;
+        height: 8px;
+        color: #D5D0FF;
+    }
+    #excercises__name {
+        padding: 14px 159px 11px 47px;
+        margin-right: 20px;
+        width: 272px;
+        height: 55px;
+        background: #FFFFFF;
+        border-radius: 15px 50px;
+    }
+
+    #excercises__phone {
+        padding: 14px 159px 11px 47px;
+        width: 272px;
+        height: 55px;
+        background: #FFFFFF;
+        border-radius: 15px 50px;
+    }
+    #excercises__button {
+        width: 272px;
+        height: 55px;
+        background: #2DBC7C;
+        border: none;
+        border-radius: 15px 50px;
+        font-family: 'FaberSansPro';
+        font-weight: 400;
+        font-size: 16px;
+        color: #FFFFFF;
+        &:hover {
+            background-color: $red;
+            transition: all 0.5s;
+        }
+    }
+    
+    .container {
+        display: flex;
+        align-items: center;
+    }
+}

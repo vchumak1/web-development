@@ -1,0 +1,95 @@
+@media (max-width: 1200px) {
+    .excercises {
+        padding-left: 10px;
+        padding-right: 10px;
+
+        .container {
+            flex-direction: row;
+            align-items: center;
+        }
+
+        &__img {
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .excercises {
+        padding-left: 10px;
+        padding-right: 10px;
+
+        .container {
+            flex-direction: row;
+            align-items: center;
+        }
+
+        &__img {
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 720px) {
+    .excercises {
+        &__img {
+            display: none;
+        }
+
+        &__title {
+            font-size: 38px;
+            text-align: center;
+        }
+
+        &__subtitle {
+            text-align: center;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .excercises {
+        padding-left: 10px;
+        padding-right: 10px;
+
+        &__img {
+            display: none;
+        }
+
+        &__form {
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        &__title {
+            font-size: 22px;
+            line-height: 32px;
+            text-align: center;
+        }
+
+        &__subtitle {
+            font-size: 15px;
+            line-height: 24px;
+            text-align: center;
+        }
+
+        &__name-box,
+        &__phone-box {
+            width: 80%;
+        }
+
+        #excercises__button {
+            width: 80%;
+        }
+
+        #excercises__name,
+        #excercises__phone {
+            width: 100%;
+        }
+    }
+}
