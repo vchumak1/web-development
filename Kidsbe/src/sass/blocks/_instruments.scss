@@ -1,0 +1,72 @@
+.instruments {
+    padding: 88px 146px 0 146px;
+    background-color: $grey;
+    .container {
+        text-align: center;
+    }
+    &__title {
+        font-family: 'Directo';
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 50px;
+        text-align: center;
+        color: #2D2D2D;
+    }
+    &__subtitle {
+        margin-top: 19px;
+        font-family: 'FaberSansPro';
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 30px;
+        text-align: center;
+        color: #6D698C;
+        &_down {
+            margin-top: 46px;
+        }
+    }
+    &__wrapper {
+        margin-top: 35px;
+        display: flex;
+        justify-content: center;
+    }
+    &__item {
+        padding: 39px 30px 30px 30px;
+        margin-right: 20px;
+        display: flex;
+        flex-direction: column;
+        width: 272px;
+        background: #FFFFFF;
+        border-radius: 20px;
+        align-items: center;
+        &-img {
+            display: block;
+            width: 80px;
+            height: 80px;
+        }
+        &-descr {
+            margin-top: 25px;
+            font-family: 'FaberSansPro';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            color: #2D2D2D;
+        }
+    }
+    &__button {
+        margin-top: 23px;
+        width: 273px;
+        height: 55px;
+        background: $red;
+        border-radius: 15px 50px;
+        border: none;
+        font-family: 'FaberSansPro';
+        font-weight: 400;
+        font-size: 16px;
+        color: #FFFFFF;
+        cursor: pointer;
+        &:hover {
+            background-color: $yellow;
+            transition: all 0.5s;
+        }
+    }
+}
