@@ -1,0 +1,37 @@
+.instructions {
+    padding: 20px 146px 0 79px;
+    background-color: $grey;
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        &_mobile {
+            display: none;
+        }
+    }
+    &__descr {
+        &-title {
+            font-family: 'Directo';
+            font-weight: 700;
+            font-size: 36px;
+            line-height: 50px;
+            color: #2D2D2D;
+            &_mobile {
+                font-size: 22px;
+                line-height: 32px;
+                text-align: center;
+            }
+        }
+        &-paragraph {
+            margin-top: 40px;
+            font-family: 'FaberSansPro';
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 30px;
+            color: #6D698C;
+            &_mobile {
+                font-size: 15px;
+                line-height: 24px;
+            }
+        }
+    }
+}
