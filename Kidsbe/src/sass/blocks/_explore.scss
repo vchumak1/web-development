@@ -1,0 +1,22 @@
+.explore {
+    padding: 100px 0px 0px 146px;
+    background-color: $grey;
+    .container {
+        display: flex;
+    }
+    &__descr-title {
+        font-family: 'Directo';
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 50px;
+        color: #2D2D2D;
+    }
+    &__descr-paragraph {
+        margin-top: 40px;
+        font-family: 'FaberSansPro';
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 30px;
+        color: #6D698C;
+    }
+}
