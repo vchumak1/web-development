@@ -239,4 +239,65 @@ document.addEventListener('DOMContentLoaded', () => {
 
     ).render();
 
+
+    //создаем отправку данных из форм на сервер
+    const forms = document.querySelectorAll("form");
+
+    const message = {
+        loading: "Загрузка",
+        success: "Спасибо, скоро мы с Вами свяжемся",
+        failure: "Что-то пошло не так"
+    };
+
+    forms.forEach(item => {
+        postData(item);
+    });
+
+    function postData(form) {
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const statusMessage = document.createElement("div");
+            statusMessage.classList.add("status");
+            statusMessage.textContent = message.loading;
+            form.append(statusMessage);
+
+            const request = new XMLHttpRequest();
+            request.open("POST", "server.php");
+            //этот заголовок предназначен для отправки данных из формы на сервер без JSON
+            // request.setRequestHeader("Content-type", "multipart/form-data");
+
+            //этот заголовок для отправки данных в формате JSON
+            request.setRequestHeader("Content-type", "application/json", "charset=UTF-8");
+
+            const formData = new FormData(form);
+
+            const object = {};
+
+            formData.forEach((value, key) => {
+                object[key] = value;
+            });
+
+            const json = JSON.stringify(object);
+
+            request.send(json);
+
+            request.addEventListener("load", () => {
+                if (request.status === 200) {
+                    console.log(request.response);
+                    statusMessage.textContent = message.success;
+                    form.reset();
+                    setTimeout(() => {
+                        statusMessage.remove();
+                        closeModal();
+                    }, 2000);
+
+                } else {
+                    statusMessage.textContent = message.failure;
+                }
+            });
+
+        });
+    }
+
 });

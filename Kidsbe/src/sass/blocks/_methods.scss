@@ -1,0 +1,46 @@
+.methods {
+    padding: 75px 146px;
+    background-color: $grey;
+    &__title {
+        font-family: 'Directo';
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 50px;
+        text-align: center;
+    }
+    &__tab-container {
+        text-align: center;
+        padding-top: 36px;
+    }
+    &__tab-button {
+        background-color: $grey;
+        width: 146px;
+        height: 45px;
+        margin-right: 20px;
+        color: #513CF3;
+        border: none;
+        font-family: 'FaberSansPro';
+        font-weight: 500;
+        font-size: 20px;
+        text-align: center;
+        cursor: pointer;
+        &:hover {
+            transition: all 0.5s;
+            background: $blue;
+            border-radius: 15px 50px;
+            color: #FFFFFF;
+        }
+    }
+    &__media-container {
+        padding-top: 51px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__media-video {
+        display: block;
+    }
+    &__media-audioBox {
+        width: 50%;
+    }
+}

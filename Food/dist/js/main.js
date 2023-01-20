@@ -239,4 +239,73 @@ document.addEventListener('DOMContentLoaded', () => {
 
     ).render();
 
+
+    //создаем отправку данных из форм на сервер
+
+    //получаем псевдомассив из всех форм
+    const forms = document.querySelectorAll("form");
+
+    //создаем объект с типовыми фразами по статусу отправки данных с клиента на сервер
+    const message = {
+        loading: "Загрузка",
+        success: "Спасибо, скоро мы с Вами свяжемся",
+        failure: "Что-то пошло не так"
+    };
+
+    //создаем функцию обработки событий при отправке данных с формы
+    function postData(form) {
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            //создаем элемент на страницу для отображения статуса отправки данных
+            const statusMessage = document.createElement("div");
+            statusMessage.classList.add("status");
+            statusMessage.textContent = message.loading;
+            form.append(statusMessage);
+
+            //создаем запрос на отправку данных на сервер
+            const request = new XMLHttpRequest();
+            request.open("POST", "server.php");
+            //этот заголовок предназначен для отправки данных из формы на сервер без JSON, не рекомендуется к использованию
+            // request.setRequestHeader("Content-type", "multipart/form-data");
+
+            //этот заголовок для отправки данных в формате JSON
+            request.setRequestHeader("Content-type", "application/json", "charset=UTF-8");
+
+            //получаем данные из всех полей ввода у форм
+            const formData = new FormData(form);
+            //создаем пустой объект, чтобы в него передать свойства и значения из объекта formData
+            const object = {};
+            //перебором объекта formData присваиваем свойства и значения объекту object
+            formData.forEach((value, key) => {
+                object[key] = value;
+            });
+
+            //трансформируем данные в JSON формат для отправки на сервер
+            const json = JSON.stringify(object);
+            //отправляем данные на сервер
+            request.send(json);
+
+            //создаем обработчик события по статусу передачи данных на сервер
+            request.addEventListener("load", () => {
+                //если всё хорошо
+                if (request.status === 200) {
+                    console.log(request.response);
+                    statusMessage.textContent = message.success;
+                    form.reset();
+                    setTimeout(() => {
+                        statusMessage.remove();
+                        closeModal();
+                    }, 2000);
+                    //если что то пошло не так    
+                } else {
+                    statusMessage.textContent = message.failure;
+                }
+            });
+        });
+    }
+
+    forms.forEach(item => {
+        postData(item);
+    });
+
 });
