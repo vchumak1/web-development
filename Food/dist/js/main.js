@@ -101,8 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
     //создаем модальное окно
     const modalTrigger = document.querySelectorAll("[data-modal]"),
         modal = document.querySelector('.modal'),
-        modalCloseBtn = modal.querySelector("[data-close]"),
-        modalTimerId = setTimeout(showModal, 10000);
+        //modalCloseBtn = modal.querySelector("[data-close]"),
+        modalTimerId = setTimeout(showModal, 50000);
 
     function stopInterval() {
         //реализуем функционал отключения таймера, если пользователь сам открыл модальное окно
@@ -130,11 +130,11 @@ document.addEventListener('DOMContentLoaded', () => {
         stopInterval();
 
     }
-    modalCloseBtn.addEventListener('click', closeModal);
+    //modalCloseBtn.addEventListener('click', closeModal);
 
     //реализуем закрытие модального окна при клике на подложку с помощью e.target
     modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
+        if (e.target === modal || e.target.getAttribute("data-close") == '') {
             closeModal();
         }
     });
@@ -241,71 +241,96 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     //создаем отправку данных из форм на сервер
-
-    //получаем псевдомассив из всех форм
     const forms = document.querySelectorAll("form");
 
-    //создаем объект с типовыми фразами по статусу отправки данных с клиента на сервер
     const message = {
-        loading: "Загрузка",
+        loading: "img/form/spinner.svg",
         success: "Спасибо, скоро мы с Вами свяжемся",
         failure: "Что-то пошло не так"
     };
 
-    //создаем функцию обработки событий при отправке данных с формы
+    forms.forEach(item => {
+        postData(item);
+    });
+
     function postData(form) {
         form.addEventListener("submit", (e) => {
             e.preventDefault();
-            //создаем элемент на страницу для отображения статуса отправки данных
-            const statusMessage = document.createElement("div");
-            statusMessage.classList.add("status");
-            statusMessage.textContent = message.loading;
-            form.append(statusMessage);
 
-            //создаем запрос на отправку данных на сервер
+            const statusMessage = document.createElement("img");
+            statusMessage.src = message.loading;
+            statusMessage.style.cssText = `
+                display: block;
+                margin: 0 auto;
+            `;
+            //form.append(statusMessage);
+            //добавляем элемент после формы, чтобы не плыла вёрстка
+            form.insertAdjacentElement("afterend", statusMessage);
+
             const request = new XMLHttpRequest();
             request.open("POST", "server.php");
-            //этот заголовок предназначен для отправки данных из формы на сервер без JSON, не рекомендуется к использованию
+            //этот заголовок предназначен для отправки данных из формы на сервер без JSON
             // request.setRequestHeader("Content-type", "multipart/form-data");
 
             //этот заголовок для отправки данных в формате JSON
             request.setRequestHeader("Content-type", "application/json", "charset=UTF-8");
 
-            //получаем данные из всех полей ввода у форм
             const formData = new FormData(form);
-            //создаем пустой объект, чтобы в него передать свойства и значения из объекта formData
+
             const object = {};
-            //перебором объекта formData присваиваем свойства и значения объекту object
+
             formData.forEach((value, key) => {
                 object[key] = value;
             });
 
-            //трансформируем данные в JSON формат для отправки на сервер
             const json = JSON.stringify(object);
-            //отправляем данные на сервер
+
             request.send(json);
 
-            //создаем обработчик события по статусу передачи данных на сервер
             request.addEventListener("load", () => {
-                //если всё хорошо
                 if (request.status === 200) {
                     console.log(request.response);
-                    statusMessage.textContent = message.success;
+                    //statusMessage.textContent = message.success;
+                    showThanksModal(message.success); 
                     form.reset();
                     setTimeout(() => {
                         statusMessage.remove();
                         closeModal();
                     }, 2000);
-                    //если что то пошло не так    
+
                 } else {
-                    statusMessage.textContent = message.failure;
+                    //statusMessage.textContent = message.failure;
+                    showThanksModal(message.failure);
                 }
             });
+
         });
     }
 
-    forms.forEach(item => {
-        postData(item);
-    });
+    //подключаем спиннер при ожидании отправки формы на сервер и выводим окно благодарности
+
+    function showThanksModal(message) {
+        const prevModalDialog = document.querySelector(".modal__dialog");
+
+        prevModalDialog.classList.add("hide");
+        showModal();
+
+        const thanksModal = document.createElement("div");
+        thanksModal.classList.add("modal__dialog");
+        thanksModal.innerHTML = `
+        <div class="modal__content">
+            <div data-close class="modal__close">&times;</div>
+            <div class="modal__title">${message}</div>
+        </div>
+        `;
+
+        document.querySelector(".modal").append(thanksModal);
+        setTimeout(() => {
+            thanksModal.remove();
+            prevModalDialog.classList.add("show");
+            prevModalDialog.classList.remove("hide");
+            closeModal();
+        }, 4000);
+    }
 
 });
