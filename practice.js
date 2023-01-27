@@ -55,36 +55,65 @@ console.log(showGoodFilms(films));
 
 //вторая домашнаяя работа по методам массивов
 const funds = [
-    {amount: -1400},
-    {amount: 2400},
-    {amount: -1000},
-    {amount: 500},
-    {amount: 10400},
-    {amount: -11400}
+    { amount: -1400 },
+    { amount: 2400 },
+    { amount: -1000 },
+    { amount: 500 },
+    { amount: 10400 },
+    { amount: -11400 }
 ];
 
 //получить сумму дохода у которых он есть, число > 0
 const getPositiveIncomeAmount = (data) => {
-    
+
     return data.filter(income => income.amount > 0)
-    .map(income => Number.parseInt(Object.values(income)))
-    .reduce((sum, income) => sum += income);
+        .reduce((sum, income) => sum + income.amount, 0);
 
 };
 
 //считаем суммарный доход прибыльных и убыточных магазинов
 const getTotalIncomeAmount = (data) => {
-   return data.map(income => Number.parseInt(Object.values(income))
-   .reduce((sum, number) => {
-        if(number <= 0) {
-            return sum += number;
-        } else {
-            return getPositiveIncomeAmount(data);
-        }
-   }));
-   
+    return data.some(item => item.amount < 0) ? data.reduce((acc, curr) => acc + curr.amount, 0) : getPositiveIncomeAmount(data);
+
 };
 
 console.log(getTotalIncomeAmount(funds));
 
 console.log(getPositiveIncomeAmount(funds));
+
+/*  
+Pete likes to bake some cakes. He has some recipes and ingredients. Unfortunately he is not good in maths. Can you help him to find out, how many cakes he could bake considering his recipes?
+
+Write a function cakes(), which takes the recipe (object) and the available ingredients (also an object) and returns the maximum number of cakes Pete can bake (integer). For simplicity there are no units for the amounts (e.g. 1 lb of flour or 200 g of sugar are simply 1 or 200). Ingredients that are not present in the objects, can be considered as 0.
+*/
+
+const recipe = {
+    flour: 100,
+    milk: 50,
+    eggs: 1
+};
+
+const avaliable = {
+    flour: 200,
+    milk: 50,
+    eggs: 2
+};
+
+function cakes(recipe, available) {
+    return Object.keys(recipe).reduce(function (val, ingredient) {
+        return Math.min(Math.floor(available[ingredient] / recipe[ingredient] || 0), val);
+    }, Infinity);
+}
+
+console.log(cakes(recipe, avaliable));
+
+//найти исключительное число в массиве
+const numbers = [1, 8, 4, 4, 6, 1, 8];
+
+function findUnique(numbers) {
+    return Number.parseInt(numbers.sort((a, b) => a - b).map((val, i, arr) => {
+        return val == arr[i + 1] ? (val = "", arr[i + 1] = "") : val;
+    }).reduce((result, num) => result + num));
+}
+
+console.log(findUnique(numbers));

@@ -1,4 +1,11 @@
 "use strict";
+//получаем сумму всех чисел включая и вложенные в массивы в качестве аргументов функции
+function smartSum(...rest) {
+    return rest.reduce((s, e) => s + (typeof e === "number" ? e : smartSum(...e)), 0);
+}
+
+console.log(smartSum(1,2,3,[4,5],6));
+
 //рекурсионный перебор массива и получение максимального значения
 function max(list) {
     let subMax = 0;
