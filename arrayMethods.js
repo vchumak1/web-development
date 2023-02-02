@@ -76,3 +76,5 @@ const newArr = Object.entries(obj)
         .map(names => names[0]);
 
 console.log(newArr);
+
+//Object.fromEntries() преобразует массив массивов обратно в объект
