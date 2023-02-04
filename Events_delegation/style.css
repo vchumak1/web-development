@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    min-height: 500px;
+    justify-content: center;
+    align-items: center
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    width: 100%;
+    min-height: 300px;
+}
+
+.button {
+    width: 100px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.click {
+    background-color: red;
+}
