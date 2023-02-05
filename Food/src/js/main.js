@@ -561,6 +561,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let offset = 0;
 
     const slides = document.querySelectorAll('.offer__slide'),
+        //создаем навигацию для слайдов
+        slider = document.querySelector(".offer__slider"),
         prev = document.querySelector('.offer__slider-prev'),
         next = document.querySelector('.offer__slider-next'),
         total = document.querySelector('#total'),
@@ -592,6 +594,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    //обращаемся к блоку слайдера для установления абсолютного позиционирования
+    slider.style.position = "relative";
+
+    //создаем точки для навигации слайдера
+    const indicators = document.createElement("ol"),
+          dots = [];
+    indicators.classList.add("carousel-indicators");
+
+    //помещаем созданный элемент в блок со слайдером
+    slider.append(indicators);
+
+    //создаем количество точек в зависимости от слайдов
+    for (let i = 0; i < slides.length; i++) {
+        const dot = document.createElement("li");
+        dot.setAttribute("data-slide-to", i + 1);
+        dot.classList.add("dot");
+
+        if(i === 0) {
+            dot.style.opacity = 1;
+        }
+
+        indicators.append(dot);
+        dots.push(dot);
+    }
+
     function switchNextSlide() {
         if (offset == (+width.slice(0, width.length - 2) * (slides.length - 1))) {
             offset = 0;
@@ -612,9 +639,11 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             current.textContent = slideIndex;
         }
+        dots.forEach(dot => dot.style.opacity =".5");
+        dots[slideIndex - 1].style.opacity = 1;
     }
 
-    const slidesSwitcher = setInterval(switchNextSlide, 2000);
+    const slidesSwitcher = setInterval(switchNextSlide, 3000);
 
     next.addEventListener('click', () => {
         switchNextSlide();
@@ -643,6 +672,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         clearInterval(slidesSwitcher);
+
+        dots.forEach(dot => dot.style.opacity =".5");
+        dots[slideIndex - 1].style.opacity = 1;
+    });
+
+    //создаем взаимодействие с навигацией слайдов
+    dots.forEach(dot => {
+        dot.addEventListener("click", (e) => {
+            const slideTo = e.target.getAttribute("data-slide-to");
+
+            //устанавливаем позицию текущего слайда, на который кликнули
+            slideIndex = slideTo;
+            offset = +width.slice(0, width.length - 2) * (slideTo - 1);
+            slidesField.style.transform = `translateX(-${offset}px)`;
+
+            dots.forEach(dot => dot.style.opacity =".5");
+            dots[slideIndex - 1].style.opacity = 1;
+
+            
+        if (slides.length < 10) {
+            current.textContent = `0${slideIndex}`;
+        } else {
+            current.textContent = slideIndex;
+        }
+
+            clearInterval(slidesSwitcher);
+        });
     });
 
 });
