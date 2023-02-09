@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     //Создаем timer
-    const deadline = '2022-11-11';
+    const deadline = '2023-02-11';
 
     function getTimeRemaining(endtime) {
         //получаем разницу в миллисекундах между датой окончанчания события и текущей датой и временем
