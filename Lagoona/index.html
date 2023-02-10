@@ -6,28 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lagoona</title>
+    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <div class="container">
         <header class="header">
-            <div class="header-left">
-                <h1 class="header-logo">
-                    <img src="img/logo.svg" alt="logo">
-                </h1>
-                <a href="tel:+74953225448" class="header-phone">+7 495 322-54-48</a>
+            <div class="header-wrapper">
+                <div class="header-left">
+                    <h1 class="header-logo">
+                        <img src="img/logo.svg" alt="logo">
+                    </h1>
+                    <a href="tel:+74953225448" class="header-phone">+7 495 322-54-48</a>
+                </div>
+                <div class="header-right">
+                    <a href="#" class="header-cabinet">
+                        <svg class="header-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M11.59 7.41L15.17 11H1V13H15.17L11.58 16.59L13 18L19 12L13 6L11.59 7.41ZM20 6V18H22V6H20Z"
+                                fill="#CC9933" />
+                        </svg>
+                        <span class="header-text">Личный кабинет</span></a>
+                </div>
             </div>
-            <div class="header-right">
-                <a href="#" class="header-cabinet">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M11.59 7.41L15.17 11H1V13H15.17L11.58 16.59L13 18L19 12L13 6L11.59 7.41ZM20 6V18H22V6H20Z"
-                            fill="#CC9933" />
-                    </svg>
-                    Личный кабинет</a>
-            </div>
-
+            
             <nav class="header-nav">
                 <div class="header-nav__left">
                     <ul class="header-nav__list">
@@ -52,7 +55,7 @@
                     </ul>
                 </div>
                 <div class="header-nav__right">
-                    <a href="#" class="btn">Хочу тур</a>
+                    <a href="#" class="btn btn-header">Хочу тур</a>
                     <button class="btn">Обратный звонок</button>
                 </div>
             </nav>
@@ -61,10 +64,35 @@
         <main class="main">
             <section class="offers">
                 <h2 class="section-title">Спецпредложения</h2>
-                <ul class="offres-small__list">
-                    <li class="offres-small__item">
-                        <strong class="offers-small__item-heading">Мальдивские острова</strong>
-                        <p class="offers-small__item-price">от 55 000</p>
+                <div class="offers-wrapper">
+                    <ul class="offres-small__list">
+                        <li class="offres-small__item offers-small__item-first">
+                            <strong class="offers-small__item-heading">Мальдивские острова</strong>
+                            <p class="offers-small__item-price">от 55 000</p>
+                            <a href="#" class="offers__item-link">Подробнее
+                                <svg class="section__item-icon" width="11" height="18" viewBox="0 0 11 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.49998 1.00002L9.27815 8.7782L1.49998 16.5564" stroke="#F0BF5F"
+                                        stroke-width="2" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="offres-small__item offres-small__item-second">
+                            <strong class="offers-small__item-heading">Горящий тур на остров Крит</strong>
+                            <p class="offers-small__item-price">от 30 000</p>
+                            <a href="#" class="offers__item-link">Подробнее
+                                <svg class="section__item-icon" width="11" height="18" viewBox="0 0 11 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.49998 1.00002L9.27815 8.7782L1.49998 16.5564" stroke="#F0BF5F"
+                                        stroke-width="2" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+    
+                    <div class="offers-big__item">
+                        <strong class="offers-big__item-heading">Номера категории люкс</strong>
+                        <p class="offers-big__item-price">от 5 000</p>
                         <a href="#" class="offers__item-link">Подробнее
                             <svg class="section__item-icon" width="11" height="18" viewBox="0 0 11 18" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -72,30 +100,7 @@
                                     stroke-width="2" />
                             </svg>
                         </a>
-                    </li>
-                    <li class="offres-small__item">
-                        <strong class="offers-small__item-heading">Горящий тур на остров Крит</strong>
-                        <p class="offers-small__item-price">от 30 000</p>
-                        <a href="#" class="offers__item-link">Подробнее
-                            <svg class="section__item-icon" width="11" height="18" viewBox="0 0 11 18" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1.49998 1.00002L9.27815 8.7782L1.49998 16.5564" stroke="#F0BF5F"
-                                    stroke-width="2" />
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
-
-                <div class="offers-big__item">
-                    <strong class="offers-big__item-heading">Горящий тур на остров Крит</strong>
-                    <p class="offers-big__item-price">от 30 000</p>
-                    <a href="#" class="offers__item-link">Подробнее
-                        <svg class="section__item-icon" width="11" height="18" viewBox="0 0 11 18" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1.49998 1.00002L9.27815 8.7782L1.49998 16.5564" stroke="#F0BF5F"
-                                stroke-width="2" />
-                        </svg>
-                    </a>
+                    </div>
                 </div>
             </section>
 
