@@ -22,15 +22,16 @@
                 </div>
                 <div class="header-right">
                     <a href="#" class="header-cabinet">
-                        <svg class="header-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="header-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M11.59 7.41L15.17 11H1V13H15.17L11.58 16.59L13 18L19 12L13 6L11.59 7.41ZM20 6V18H22V6H20Z"
                                 fill="#CC9933" />
                         </svg>
-                        <span class="header-text">Личный кабинет</span></a>
+                        <span class="header-cabinet__text">Личный кабинет</span></a>
                 </div>
             </div>
-            
+
             <nav class="header-nav">
                 <div class="header-nav__left">
                     <ul class="header-nav__list">
@@ -55,7 +56,7 @@
                     </ul>
                 </div>
                 <div class="header-nav__right">
-                    <a href="#" class="btn btn-header">Хочу тур</a>
+                    <button class="btn">Хочу тур</button>
                     <button class="btn">Обратный звонок</button>
                 </div>
             </nav>
@@ -65,35 +66,43 @@
             <section class="offers">
                 <h2 class="section-title">Спецпредложения</h2>
                 <div class="offers-wrapper">
-                    <ul class="offres-small__list">
-                        <li class="offres-small__item offers-small__item-first">
-                            <strong class="offers-small__item-heading">Мальдивские острова</strong>
-                            <p class="offers-small__item-price">от 55 000</p>
-                            <a href="#" class="offers__item-link">Подробнее
-                                <svg class="section__item-icon" width="11" height="18" viewBox="0 0 11 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M1.49998 1.00002L9.27815 8.7782L1.49998 16.5564" stroke="#F0BF5F"
-                                        stroke-width="2" />
-                                </svg>
-                            </a>
-                        </li>
-                        <li class="offres-small__item offres-small__item-second">
-                            <strong class="offers-small__item-heading">Горящий тур на остров Крит</strong>
-                            <p class="offers-small__item-price">от 30 000</p>
-                            <a href="#" class="offers__item-link">Подробнее
-                                <svg class="section__item-icon" width="11" height="18" viewBox="0 0 11 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M1.49998 1.00002L9.27815 8.7782L1.49998 16.5564" stroke="#F0BF5F"
-                                        stroke-width="2" />
-                                </svg>
-                            </a>
-                        </li>
-                    </ul>
-    
+                    <div class="offers-small__list">
+                        <div class="offers-small__item offers-small__item-first">
+                            <div class="offers-small__content">
+                                <strong class="offers-small__item-heading">Мальдивские <br> острова</strong>
+                                <p class="offers-small__item-price">от 55 000</p>
+                                <a href="#" class="offers__item-link">
+                                    <span class="offers__item-text">Подробнее</span>
+                                    <svg class="section__item-icon" width="11" height="18" viewBox="0 0 11 18"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1.49998 1.00002L9.27815 8.7782L1.49998 16.5564" stroke="#F0BF5F"
+                                            stroke-width="2" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="offers-small__item offers-small__item-second">
+                            <div class="offers-small__content">
+                                <strong class="offers-small__item-heading">Горящий <br> тур на остров Крит</strong>
+                                <p class="offers-small__item-price">от 30 000</p>
+                                <a href="#" class="offers__item-link">
+                                    <span class="offers__item-text">Подробнее</span>
+                                    <svg class="section__item-icon" width="11" height="18" viewBox="0 0 11 18"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1.49998 1.00002L9.27815 8.7782L1.49998 16.5564" stroke="#F0BF5F"
+                                            stroke-width="2" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
                     <div class="offers-big__item">
                         <strong class="offers-big__item-heading">Номера категории люкс</strong>
                         <p class="offers-big__item-price">от 5 000</p>
-                        <a href="#" class="offers__item-link">Подробнее
+                        <a href="#" class="offers__item-link">
+                            <span class="offers__item-text">Подробнее</span>
                             <svg class="section__item-icon" width="11" height="18" viewBox="0 0 11 18" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1.49998 1.00002L9.27815 8.7782L1.49998 16.5564" stroke="#F0BF5F"
@@ -106,7 +115,8 @@
 
             <section class="about">
                 <h2 class="section-title">О нас</h2>
-                <p class="description">Идейные соображения высшего порядка, а также сложившаяся структура организации
+                <p class="description about-description">Идейные соображения высшего порядка, а также сложившаяся
+                    структура организации
                     влечёт за собой процесс внедрения и модернизации системы обучения кадров, соответствует насущным
                     потребностям. Идейные соображения высшего порядка, а также дальнейшее развитие различных форм
                     деятельности представляет собой интересный эксперимент проверки системы обучения кадров,
@@ -118,62 +128,62 @@
                 <h2 class="section-title">Услуги</h2>
                 <ul class="services-list">
                     <li class="services-list__item">
-                        <div class="services-list__item-img"></div>
+                        <img src="img/services/firstbg.png" class="services-list__item-img" alt="first">
                         <div class="services-list__item-description">
                             <strong class="services-list__item-heading">
-                                Эксклюзивное обслуживание
-                                <svg width="11" height="18" viewBox="0 0 11 18" fill="none"
+                                <span class="services-list__line">Эксклюзивное обслуживание</span>
+                                <svg class="services-list__icon" width="11" height="18" viewBox="0 0 11 18" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path d="M1.49998 1.00002L9.27815 8.7782L1.49998 16.5564" stroke="#F0BF5F"
                                         stroke-width="2" />
                                 </svg>
                             </strong>
-                            <p class="services-list__item-description">Равным образом постоянный количественный рост
+                            <p class="description">Равным образом постоянный количественный рост
                                 и сфера нашей активности</p>
                         </div>
                     </li>
                     <li class="services-list__item">
-                        <div class="services-list__item-img"></div>
+                        <img src="img/services/secondbg.png" class="services-list__item-img" alt="second">
                         <div class="services-list__item-description">
                             <strong class="services-list__item-heading">
-                                Аренда банкетных залов
-                                <svg width="11" height="18" viewBox="0 0 11 18" fill="none"
+                                <span class="services-list__line">Аренда банкетных залов</span>
+                                <svg class="services-list__icon" width="11" height="18" viewBox="0 0 11 18" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path d="M1.49998 1.00002L9.27815 8.7782L1.49998 16.5564" stroke="#F0BF5F"
                                         stroke-width="2" />
                                 </svg>
                             </strong>
-                            <p class="services-list__item-description">Значимость этих проблем настолько очевидна,
+                            <p class="description">Значимость этих проблем настолько очевидна,
                                 что дальнейшее развитие различных форм</p>
                         </div>
                     </li>
                     <li class="services-list__item">
-                        <div class="services-list__item-img"></div>
+                        <img src="img/services/thirdbg.png" class="services-list__item-img" alt="third">
                         <div class="services-list__item-description">
                             <strong class="services-list__item-heading">
-                                Сауны, бассейны, бани, фитнес-залы
-                                <svg width="11" height="18" viewBox="0 0 11 18" fill="none"
+                                <span class="services-list__line">Сауны, бассейны, бани, фитнес-залы</span>
+                                <svg class="services-list__icon" width="11" height="18" viewBox="0 0 11 18" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path d="M1.49998 1.00002L9.27815 8.7782L1.49998 16.5564" stroke="#F0BF5F"
                                         stroke-width="2" />
                                 </svg>
                             </strong>
-                            <p class="services-list__item-description">Не следует, однако забывать, что начало
+                            <p class="description">Не следует, однако забывать, что начало
                                 повседневной работы по формированию позиции</p>
                         </div>
                     </li>
                     <li class="services-list__item">
-                        <div class="services-list__item-img"></div>
+                        <img src="img/services/fourthbg.png" class="services-list__item-img" alt="fourth">
                         <div class="services-list__item-description">
                             <strong class="services-list__item-heading">
-                                Охраняемые автомобильные стоянки
-                                <svg width="11" height="18" viewBox="0 0 11 18" fill="none"
+                                <span class="services-list__line">Охраняемые автомобильные стоянки</span>
+                                <svg class="services-list__icon" width="11" height="18" viewBox="0 0 11 18" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path d="M1.49998 1.00002L9.27815 8.7782L1.49998 16.5564" stroke="#F0BF5F"
                                         stroke-width="2" />
                                 </svg>
                             </strong>
-                            <p class="services-list__item-description">Не следует, однако забывать, что начало
+                            <p class="description">Не следует, однако забывать, что начало
                                 повседневной работы по формированию позиции</p>
                         </div>
                     </li>
@@ -232,151 +242,169 @@
                 <ul class="placement-list">
                     <li class="placement-list__item">
                         <img src="img/placement/1.png" alt="first" class="placement-list__item-img">
-                        <p class="placement-list__item-price">
-                            <span class="preposition">от</span>
-                            <span class="price">4 000</span>
-                            <span class="period"> / ночь</span>
-                        </p>
-                        <div class="raiting">
-                            <img src="icons/placement/star-grey.svg" alt="hotels-raiting" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                        <div class="placement-list__wrapper">
+                            <p class="placement-list__item-price">
+                                <span class="preposition">от</span>
+                                <span class="price">4 000</span>
+                                <span class="period"> / ночь</span>
+                            </p>
+                            <div class="raiting">
+                                <img src="icons/placement/star-grey.svg" alt="hotels-raiting" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                            </div>
+                            <p class="placement-list__item-hotel">Название отеля</p>
+                            <p class="placement-list__item-country">Местонахождение отеля</p>
+                            <a href="#" class="btn">Номера</a>
                         </div>
-                        <p class="placement-list__item-hotel">Название отеля</p>
-                        <p class="placement-list__item-country">Местонахождение отеля</p>
-                        <a href="#" class="btn">Номера</a>
+
                     </li>
                     <li class="placement-list__item">
                         <img src="img/placement/2.png" alt="second" class="placement-list__item-img">
-                        <p class="placement-list__item-price">
-                            <span class="preposition">от</span>
-                            <span class="price">4 000</span>
-                            <span class="period"> / ночь</span>
-                        </p>
-                        <div class="raiting">
-                            <img src="icons/placement/star-grey.svg" alt="hotels-raiting" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                        <div class="placement-list__wrapper">
+                            <p class="placement-list__item-price">
+                                <span class="preposition">от</span>
+                                <span class="price">4 000</span>
+                                <span class="period"> / ночь</span>
+                            </p>
+                            <div class="raiting">
+                                <img src="icons/placement/star-grey.svg" alt="hotels-raiting" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                            </div>
+                            <p class="placement-list__item-hotel">Название отеля</p>
+                            <p class="placement-list__item-country">Местонахождение отеля</p>
+                            <a href="#" class="btn">Номера</a>
                         </div>
-                        <p class="placement-list__item-hotel">Название отеля</p>
-                        <p class="placement-list__item-country">Местонахождение отеля</p>
-                        <a href="#" class="btn">Номера</a>
                     </li>
                     <li class="placement-list__item">
                         <img src="img/placement/3.png" alt="third" class="placement-list__item-img">
-                        <p class="placement-list__item-price">
-                            <span class="preposition">от</span>
-                            <span class="price">4 000</span>
-                            <span class="period"> / ночь</span>
-                        </p>
-                        <div class="raiting">
-                            <img src="icons/placement/star-grey.svg" alt="hotels-raiting" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                        <div class="placement-list__wrapper">
+                            <p class="placement-list__item-price">
+                                <span class="preposition">от</span>
+                                <span class="price">4 000</span>
+                                <span class="period"> / ночь</span>
+                            </p>
+                            <div class="raiting">
+                                <img src="icons/placement/star-grey.svg" alt="hotels-raiting" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                            </div>
+                            <p class="placement-list__item-hotel">Название отеля</p>
+                            <p class="placement-list__item-country">Местонахождение отеля</p>
+                            <a href="#" class="btn">Номера</a>
                         </div>
-                        <p class="placement-list__item-hotel">Название отеля</p>
-                        <p class="placement-list__item-country">Местонахождение отеля</p>
-                        <a href="#" class="btn">Номера</a>
                     </li>
                     <li class="placement-list__item">
                         <img src="img/placement/4.png" alt="fourth" class="placement-list__item-img">
-                        <p class="placement-list__item-price">
-                            <span class="preposition">от</span>
-                            <span class="price">4 000</span>
-                            <span class="period"> / ночь</span>
-                        </p>
-                        <div class="raiting">
-                            <img src="icons/placement/star-grey.svg" alt="hotels-raiting" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                        <div class="placement-list__wrapper">
+                            <p class="placement-list__item-price">
+                                <span class="preposition">от</span>
+                                <span class="price">4 000</span>
+                                <span class="period"> / ночь</span>
+                            </p>
+                            <div class="raiting">
+                                <img src="icons/placement/star-grey.svg" alt="hotels-raiting" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                            </div>
+                            <p class="placement-list__item-hotel">Название отеля</p>
+                            <p class="placement-list__item-country">Местонахождение отеля</p>
+                            <a href="#" class="btn">Номера</a>
                         </div>
-                        <p class="placement-list__item-hotel">Название отеля</p>
-                        <p class="placement-list__item-country">Местонахождение отеля</p>
-                        <a href="#" class="btn">Номера</a>
                     </li>
                     <li class="placement-list__item">
                         <img src="img/placement/5.png" alt="fifth" class="placement-list__item-img">
-                        <p class="placement-list__item-price">
-                            <span class="preposition">от</span>
-                            <span class="price">4 000</span>
-                            <span class="period"> / ночь</span>
-                        </p>
-                        <div class="raiting">
-                            <img src="icons/placement/star-grey.svg" alt="hotels-raiting" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                        <div class="placement-list__wrapper">
+                            <p class="placement-list__item-price">
+                                <span class="preposition">от</span>
+                                <span class="price">4 000</span>
+                                <span class="period"> / ночь</span>
+                            </p>
+                            <div class="raiting">
+                                <img src="icons/placement/star-grey.svg" alt="hotels-raiting" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                            </div>
+                            <p class="placement-list__item-hotel">Название отеля</p>
+                            <p class="placement-list__item-country">Местонахождение отеля</p>
+                            <a href="#" class="btn">Номера</a>
                         </div>
-                        <p class="placement-list__item-hotel">Название отеля</p>
-                        <p class="placement-list__item-country">Местонахождение отеля</p>
-                        <a href="#" class="btn">Номера</a>
                     </li>
                     <li class="placement-list__item">
                         <img src="img/placement/6.png" alt="sixth" class="placement-list__item-img">
-                        <p class="placement-list__item-price">
-                            <span class="preposition">от</span>
-                            <span class="price">4 000</span>
-                            <span class="period"> / ночь</span>
-                        </p>
-                        <div class="raiting">
-                            <img src="icons/placement/star-grey.svg" alt="hotels-raiting" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                        <div class="placement-list__wrapper">
+                            <p class="placement-list__item-price">
+                                <span class="preposition">от</span>
+                                <span class="price">4 000</span>
+                                <span class="period"> / ночь</span>
+                            </p>
+                            <div class="raiting">
+                                <img src="icons/placement/star-grey.svg" alt="hotels-raiting" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                            </div>
+                            <p class="placement-list__item-hotel">Название отеля</p>
+                            <p class="placement-list__item-country">Местонахождение отеля</p>
+                            <a href="#" class="btn">Номера</a>
                         </div>
-                        <p class="placement-list__item-hotel">Название отеля</p>
-                        <p class="placement-list__item-country">Местонахождение отеля</p>
-                        <a href="#" class="btn">Номера</a>
                     </li>
                     <li class="placement-list__item">
                         <img src="img/placement/7.png" alt="seventh" class="placement-list__item-img">
-                        <p class="placement-list__item-price">
-                            <span class="preposition">от</span>
-                            <span class="price">4 000</span>
-                            <span class="period"> / ночь</span>
-                        </p>
-                        <div class="raiting">
-                            <img src="icons/placement/star-grey.svg" alt="hotels-raiting" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                        <div class="placement-list__wrapper">
+                            <p class="placement-list__item-price">
+                                <span class="preposition">от</span>
+                                <span class="price">4 000</span>
+                                <span class="period"> / ночь</span>
+                            </p>
+                            <div class="raiting">
+                                <img src="icons/placement/star-grey.svg" alt="hotels-raiting" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                            </div>
+                            <p class="placement-list__item-hotel">Название отеля</p>
+                            <p class="placement-list__item-country">Местонахождение отеля</p>
+                            <a href="#" class="btn">Номера</a>
                         </div>
-                        <p class="placement-list__item-hotel">Название отеля</p>
-                        <p class="placement-list__item-country">Местонахождение отеля</p>
-                        <a href="#" class="btn">Номера</a>
                     </li>
                     <li class="placement-list__item">
                         <img src="img/placement/8.png" alt="eigth" class="placement-list__item-img">
-                        <p class="placement-list__item-price">
-                            <span class="preposition">от</span>
-                            <span class="price">4 000</span>
-                            <span class="period"> / ночь</span>
-                        </p>
-                        <div class="raiting">
-                            <img src="icons/placement/star-grey.svg" alt="hotels-raiting" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
-                            <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                        <div class="placement-list__wrapper">
+                            <p class="placement-list__item-price">
+                                <span class="preposition">от</span>
+                                <span class="price">4 000</span>
+                                <span class="period"> / ночь</span>
+                            </p>
+                            <div class="raiting">
+                                <img src="icons/placement/star-grey.svg" alt="hotels-raiting" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                                <img src="icons/placement/star-grey.svg" alt="" class="raiting__star">
+                            </div>
+                            <p class="placement-list__item-hotel">Название отеля</p>
+                            <p class="placement-list__item-country">Местонахождение отеля</p>
+                            <a href="#" class="btn">Номера</a>
                         </div>
-                        <p class="placement-list__item-hotel">Название отеля</p>
-                        <p class="placement-list__item-country">Местонахождение отеля</p>
-                        <a href="#" class="btn">Номера</a>
                     </li>
                     <li class="placement-list__item big">
-                        <a href="#" class="big__link">Посмотреть все варианты
-                            <svg width="10" height="18" viewBox="0 0 10 18" fill="none"
+                        <a href="#" class="big__link">
+                            <span class="big__link-line">Посмотреть все варианты</span>
+                            <svg class="big__link-icon" width="10" height="18" viewBox="0 0 10 18" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M0.778175 1.22183L8.55635 9L0.778175 16.7782" stroke="white"
                                     stroke-width="2" />
