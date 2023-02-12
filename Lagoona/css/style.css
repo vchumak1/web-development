@@ -1,9 +1,44 @@
+@font-face {
+    font-family: 'Muller';
+    src: url('../fonts/MullerLight.woff2') format('woff2'),
+      url('../fonts/MullerLight.woff') format('woff');
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Muller';
+    src: url('../fonts/MullerRegular.woff2') format('woff2'),
+      url('../fonts/MullerRegular.woff') format('woff');
+    font-display: swap;
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Muller';
+    src: url('../fonts/MullerMedium.woff2') format('woff2'),
+      url('../fonts/MullerMedium.woff') format('woff');
+    font-display: swap;
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Muller';
+    src: url('../fonts/MullerBold.woff2') format('woff2'),
+      url('../fonts/MullerBold.woff') format('woff');
+    font-display: swap;
+    font-weight: 700;
+    font-style: normal;
+}
+
 * {
     box-sizing: border-box;
 }
 
 html {
-    font-family: sans-serif;
+    font-family: 'Muller', sans-serif;
 }
 
 body {
@@ -134,7 +169,7 @@ strong {
 
 .offers-wrapper {
     display: flex;
-    align-items: center;
+    align-items: stretch;
 }
 
 .offers-small__list {
@@ -176,7 +211,6 @@ strong {
     /* outline: 2px solid red; */
     border-radius: 15px;
     min-width: 45%;
-    flex: 1 1 auto;
     background-image: url("../img/offers/offerbg3.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -259,7 +293,6 @@ strong {
 
 .services-list {
     display: flex;
-    flex: 1 1 auto;
     flex-wrap: wrap;
     justify-content: space-between;
 }
