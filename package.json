@@ -29,6 +29,7 @@
     "gulp-sass": "^5.1.0",
     "jquery-validation": "^1.19.5",
     "json-server": "^0.17.1",
+    "prettier": "^2.8.4",
     "sass": "^1.55.0"
   }
 }

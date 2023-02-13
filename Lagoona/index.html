@@ -413,8 +413,44 @@
                     </li>
                 </ul>
             </section>
+
+            <section class="modal">
+                    <h2 class="section-title">Хочу тур</h2>
+                    <form action="https://jsonplaceholder.typicode.com/posts" autocomplete method="POST"
+                        class="modal-form" class="modal-form">
+                        <div class="departure-wrapper">
+                            <label for="form-city" class="form-label1">Город вылета</label>
+                            <select name="departure" type="text" id="form-city">
+                                <option value="Санкт-Петербург">Санкт-Петербург</option>
+                                <option value="Москва">Москва</option>
+                                <option value="Магадан">Магадан</option>
+                            </select>
+                        </div>
+                        <div class="arrival-wrapper">
+                            <label for="form-arrival" class="form-label2">Страна</label>
+                            <select name="arrival" type="text" id="form-arrival">
+                                <option value="Казахстан">Казахстан</option>
+                                <option value="Турция">Турция</option>
+                                <option value="Египет">Египет</option>
+                            </select>
+                        </div>
+                        <div class="calendar-wrapper">
+                            <label for="form-calendar" class="form-label">Дата прибытия</label>
+                            <input name ="calendar" type="date" id="form-calendar">
+                        </div>
+                        <div class="number-wrapper">
+                            <label for="form-nights" class="form-label">Ночей</label>
+                            <input name ="nights" type="number" id="form-nights" placeholder="0">
+                        </div>
+                        <div class="tourist-wrapper">
+                            <label for="form-tourist" class="form-label">Туристы</label>
+                            <input name ="tourist" type="number" id="form-tourist" placeholder="0">
+                        </div>
+                        <button type="submit" class="btn form-btn">Найти</button>
+                    </form>
+                </div>
+            </section>
         </main>
-    </div>
 </body>
 
 </html>
