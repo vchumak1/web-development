@@ -193,10 +193,17 @@ img {
     border-radius: 5px;
     border: 1px solid rgba(217, 217, 217, 0.6);
     padding: 60px 30px;
+
 }
 .section-do-item:hover {
+    transition: border, background, 0.5s;
     border: 1px solid #3172b9;
-    background-color: #4086d3;
+    background: #4086d3;
+}
+
+.section-do-item:hover > * {
+    transition: color, 0.5s;
+    color: #ffffff;
 }
 
 .section-do-item-description {

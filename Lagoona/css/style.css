@@ -33,6 +33,15 @@
     font-style: normal;
 }
 
+:root {
+    --main-color: #CC9933;
+    --grey-color: #999999;
+    --white-color: white;
+    --color-hover: #CC9933;
+    --color-focus: #CC9933;
+    --color-active: #A47312;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -94,6 +103,14 @@ strong {
     font-weight: 500;
     font-size: 20px;
     color: #666666;
+    transition: color, 0.5s;
+}
+
+.header-phone:hover {
+    color: var(--color-hover);
+}
+.header-phone:active {
+    color: var(--color-active);
 }
 
 .header-icon,
@@ -110,12 +127,26 @@ strong {
 .header-cabinet {
     display: flex;
     align-items: center;
+    transition: color, 0.5s;
 }
 
 .header-cabinet__text {
     font-weight: 400;
     font-size: 16px;
-    color: #CC9933;
+    color: var(--main-color);
+}
+.header-cabinet__text:hover,
+.header-icon__text:hover {
+    color: var(--color-hover);
+    
+}
+.header-cabinet__text:focus,
+.header-icon__text:focus {
+    color: var(--color-focus);
+}
+.header-cabinet__text:active,
+.header-icon__text:active {
+    color: var(--color-active);
 }
 .header-nav {
     display: flex;
@@ -136,20 +167,45 @@ strong {
     font-weight: 400;
     font-size: 16px;
     color: #666666;
+    transition: color, 0.5s;
 }
+
+.header-nav__link:hover {
+    color: var(--color-hover);
+}
+.header-nav__link:active {
+    color: var(--color-active);
+}
+
 .btn {
     display: inline-block;
-    border: 1px solid #CC9933;
+    border: 1px solid var(--main-color);
     border-radius: 10px;
     background-color: #fff;
     font-weight: 400;
     font-size: 16px;
-    color: #CC9933;
+    color: var(--main-color);
     padding: 13px 20px;
     cursor: pointer;
+    transition: background, color, 0.5s
 }
 .btn:not(:last-child) {
     margin-right: 40px;
+}
+
+.btn:hover {
+    color: var(--white-color);
+    background: var(--color-hover);
+}
+
+.btn:focus {
+    color: var(--white-color);
+    background: var(--color-focus);
+}
+
+.btn:active {
+    color: var(--white-color);
+    background: var(--color-active);
 }
 
 /* offers */
@@ -179,10 +235,36 @@ strong {
 }
 
 .offers-small__item {
-     /* outline: 2px solid red; */
-    flex: 1 1 auto;
     margin-right: 24px;
     border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: none;   
+}
+
+.offers-small__item > * {
+    position: relative;
+    z-index: 1;
+}
+
+.offers-small__item-first::before,
+.offers-small__item-second::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: -450px;
+    background: linear-gradient(90deg, rgba(48, 64, 89, 0.84) -2.9%, rgba(53, 65, 83, 0) 65.7%);
+    border-radius: 15px;
+}
+
+.offers-small__item-first:hover::before,
+.offers-small__item-second:hover::before {
+    content: '';
+    transition: background, z-index, 0.5s;
+    position: absolute;
+    left: 0;
 }
 
 .offers-small__item:not(:last-child) {
@@ -193,11 +275,12 @@ strong {
     padding: 40px 75px 40px 45px;
 }
 
+
 .offers-small__item-first {
     background-image: url("../img/offers/offrebg1.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 100% 100%;   
+    background-size: 100% 100%;
 }
 
 .offers-small__item-second {
@@ -216,7 +299,34 @@ strong {
     background-position: center;
     background-size: 100% 100%;
     padding: 212px 229px 40px 45px;
+    position: relative;
+    overflow: hidden;
 }
+
+.offers-big__item > * {
+    position: relative;
+    z-index: 1;
+}
+
+.offers-big__item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: -450px;
+    background: linear-gradient(90deg, rgba(48, 64, 89, 0.84) -2.9%, rgba(53, 65, 83, 0) 65.7%);
+    border-radius: 15px;
+}
+
+.offers-big__item:hover::before {
+    content: '';
+    transition: background, z-index, 0.5s;
+    position: absolute;
+    left: 0;
+}
+
+
 
 .offers-small__item-heading {
     font-style: normal;
@@ -243,6 +353,13 @@ strong {
     font-size: 16px;
     line-height: 16px;
     color: #F0BF5F;
+}
+
+.offers__item-link:hover {
+    color: var(--color-hover);
+}
+.offers__item-link:active {
+    color: var(--color-active);
 }
 
 
@@ -317,7 +434,7 @@ strong {
     align-items: center;
     font-weight: 500;
     font-size: 20px;
-    color: #CC9933;
+    color: var(--main-color);
     margin-bottom: 10px;
 }
 .services-list__line {
@@ -362,15 +479,11 @@ strong {
     color: #000000;
 }
 
-.benefits-list__item:nth-child(4),
-.benefits-list__item:nth-child(8) {
+.benefits-list__item:nth-child(4n) {
     margin-right: 0;
 }
 
-.benefits-list__item:nth-child(5),
-.benefits-list__item:nth-child(6),
-.benefits-list__item:nth-child(7),
-.benefits-list__item:nth-child(8) {
+.benefits-list__item:nth-child(n + 5) {
     margin-bottom: 0;
 }
 
@@ -396,14 +509,11 @@ strong {
 .placement-list__item-img {
     width: 100%;
 }
-.placement-list__item:nth-child(3),
-.placement-list__item:nth-child(6) {
+.placement-list__item:nth-child(3n) {
     margin-right: 0;
 }
 
-.placement-list__item:nth-child(7),
-.placement-list__item:nth-child(8),
-.placement-list__item:nth-child(9) {
+.placement-list__item:nth-child(n + 7) {
     margin-bottom: 0;
 }
 
@@ -426,7 +536,7 @@ strong {
 .preposition {
     font-weight: 400;
     font-size: 16px;
-    color: #999999;
+    color: var(--grey-color);
 }
 
 .price {
@@ -453,7 +563,7 @@ strong {
     margin-bottom: 20px;
     font-weight: 400;
     font-size: 16px;
-    color: #999999;
+    color: var(--grey-color);
 }
 .big {
     margin-right: 0;
@@ -462,6 +572,7 @@ strong {
     background-position: center;
     background-size: 100% 100%;
     padding: 373px 54px 27px 54px;
+    position: relative;
 }
 
 .big__link {
@@ -478,6 +589,15 @@ strong {
     font-weight: 500;
     font-size: 20px;
     color: #FFFFFF;
+}
+
+.big__link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
 /* modal */
@@ -586,7 +706,13 @@ option {
 .contacts__phone,
 .contacts__email {
     display: block;
-    color: #CC9933;
+    color: var(--main-color);
+    transition: color, 0.5s;
+}
+
+.contacts__phone:active,
+.contacts__email:active {
+    color: var(--color-active);
 }
 
 .contacts__item:not(:first-child) {
@@ -647,8 +773,13 @@ option {
 
 .footer__agreement {
     display: block;
-    color: #CC9933;
+    color: var(--main-color);
     font-size: 16px;
+    transition: color, 0.5s;
+}
+
+.footer__agreement:active {
+    color: var(--color-active)
 }
 
 .footer__address {
@@ -662,7 +793,13 @@ option {
 
 .footer__phones {
     margin-bottom: 15px;
+    transition: color, 0.5s;
 }
+
+.footer__phones:active {
+    color: var(--color-active)
+}
+
 
 .footer__wrapper-right {
     display: flex;

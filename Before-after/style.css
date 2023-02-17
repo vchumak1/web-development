@@ -1,0 +1,51 @@
+body {
+    padding-top: 50px
+}
+
+.box {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: 1px solid red;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.box > * {
+    position: relative;
+    z-index: 1;
+}
+
+.box::before {
+    transition: top, 0.5s;
+    content: "before";
+    display: block;
+    position: absolute;
+    height: 150px;
+    width: 300px;
+    top: -150px;
+    background-color: blue;
+}
+
+.box::after {
+    transition: bottom, 0.5s;
+    content: "after";
+    display: block;
+    position: absolute;
+    width: 300px;
+    height: 150px;
+    bottom: -150px;
+    background-color: blue;
+}
+
+.box:hover::before {
+    content: '';
+    top: 0;
+}
+.box:hover::after {
+    content: '';
+    bottom: 0;
+}
