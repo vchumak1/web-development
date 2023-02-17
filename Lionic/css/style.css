@@ -206,6 +206,10 @@ img {
     color: #ffffff;
 }
 
+.section-do-item:hover .section-do-icon path {
+    fill: white;
+}
+
 .section-do-item-description {
     color: #787878;
     font-size: 14px;
