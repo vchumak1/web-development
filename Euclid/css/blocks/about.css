@@ -1,0 +1,96 @@
+.about {
+    margin-bottom: 100px;
+}
+.about__title {
+    margin-bottom: 20px;
+}
+
+.about__descr {
+    margin-bottom: 50px;
+}
+
+.about__container {
+    display: flex;
+}
+
+.about__more {
+    background-image: url("../../img/about/about.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 32px;
+    display: flex;
+    align-items: flex-end;
+    min-height: 622px;
+    width: 50%;
+    margin-right: 32px;
+}
+
+.about__success-box {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 32px;
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.about__success-descr {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 32px;
+    color: #FFFFFF;
+}
+.section-btn_about {
+    border: 3px solid #FF9900;
+    background-color: transparent;
+    color: white;
+}
+
+.section-btn_about:hover,
+.section-btn_about:focus {
+    background-color: var(--hover-color);
+}
+
+.about__advantages {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.about__advantages-box {
+    display: flex;
+    padding: 65px 0px 65px 128px;
+    border: 1px solid #CACACA;
+    border-radius: 32px;
+}
+
+.about__advantages-box:not(:last-child) {
+    margin-bottom: 32px;
+}
+
+.about__advantages-icon {
+    margin-right: 50px;
+    position: relative;
+}
+.about__advantages-icon > * {
+    position: relative;
+    z-index: 1;
+}
+
+.about__advantages-icon::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-color: var(--orange-color);
+    border-radius: 100%;
+    bottom: 0;
+    left: -70px;
+}
+
+.element-heading__about {
+    margin-bottom: 8px;
+}

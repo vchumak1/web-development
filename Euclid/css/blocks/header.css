@@ -1,0 +1,42 @@
+.header {
+    padding: 15px 76px 15px 57px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 0px 0px 32px 32px;
+}
+
+.header__logo {
+    display: block;
+}
+
+.header__nav {
+    margin-left: 260px;
+}
+
+.header__nav-list {
+    display: flex;
+}
+
+.header__nav-item {
+    color: black;
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    transition: color 0.5s;
+}
+
+.header__nav-item:not(:last-child) {
+    margin-right: 85px;
+}
+
+.header__nav-item:hover,
+.header__nav-item:focus {
+    color: var(--hover-color);
+}
+
+.header__nav-item:active {
+    color: var(--active-color);
+}

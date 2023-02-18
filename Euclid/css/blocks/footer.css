@@ -1,0 +1,130 @@
+.footer {
+    background-color: black;
+    padding: 45px 58px;
+}
+
+.footer__title {
+    color: #CACACA;
+    margin-bottom: 25px;
+}
+
+.footer__wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section-descr_footer {
+    color: #CACACA;
+}
+
+.footer__left {
+    display: flex;
+    flex-direction: column;
+    margin-right: 138px;
+}
+.footer__logo {
+    display: block;
+    margin-bottom: 30px;
+}
+.footer__nav {
+    margin-bottom: 90px;
+}
+.footer__nav-list {
+    display: flex;
+    flex-direction: column;
+}
+.footer__nav-item {
+    display: block;
+    font-weight: 600;
+    font-size: 18px;
+    color: #CACACA;
+    margin-bottom: 15px;
+    transition: color 0.5s;
+}
+.footer__nav-item:hover,
+.footer__nav-item:focus {
+    color: var(--hover-color);
+}
+
+.footer__nav-item:active {
+    color: var(--active-color);
+}
+.footer__social {
+    display: flex;
+    align-items: center;
+}
+.footer__social-icon {
+    display: block;
+    cursor: pointer;
+}
+.footer__social-icon:not(:last-child) {
+    margin-right: 25px;
+}
+
+.footer__social-icon:hover path,
+.footer__social-icon:focus path {
+    transition: fill 0.5s;
+    fill: var(--hover-color);
+}
+.footer__social-icon:active path {
+    transition: fill 0.5s;
+    color: var(--active-color);
+}
+.footer__modal {
+    display: flex;
+    flex-direction: column;
+    width: 570px;
+}
+.footer__modal-input {
+    padding: 14px 24px;
+    border: none;
+    background: #414141;
+    border-radius: 16px;
+    margin-bottom: 26px;
+    min-height: 60px;
+}
+.footer__modal-input::placeholder,
+.footer__modal-message::placeholder {
+    font-weight: 400;
+    font-size: 16px;
+    color: #CACACA;
+}
+.footer__modal-input:focus {
+    background-color: #fff;
+    color: var(--black-color);
+}
+
+.footer__modal-message {
+   resize: none;
+   margin-bottom: 32px;
+   border: none;
+   background: #414141;
+   border-radius: 16px;
+   min-height: 150px;
+   padding: 21px 0 0 24px;
+}
+
+.footer__modal-message:focus {
+    background-color: #fff;
+    color: var(--black-color);
+}
+
+.section-btn_footer {
+    margin: 0 auto;
+    padding: 19px 52px;
+    width: 47%;
+    background-color: var(--orange-color);
+    color: white;
+}
+
+.section-btn_footer:hover,
+.section-btn_footer:focus {
+    background-color: var(--hover-color);
+}
+.section-btn_footer:active {
+    background-color: var(--active-color);
+}
+
+.section-descr_footer {
+    padding: 90px 67px 0 0;
+}

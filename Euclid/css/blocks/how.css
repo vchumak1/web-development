@@ -1,0 +1,71 @@
+.how {
+    margin-bottom: 100px;
+}
+
+.how__title {
+    margin-bottom: 50px;
+}
+
+.how__wrapper {
+    display: flex;
+}
+
+.how__descr {
+    width: 53%;
+}
+
+.how__list {
+    margin-bottom: 48px;
+}
+
+.how__list-item {
+    font-weight: 400;
+    font-size: 18px;
+    color: #000000;
+    transition: color 0.5s;
+}
+.how__list-item:not(:last-child) {
+    margin-right: 85px;
+}
+
+.how__list-item:hover,
+.how__list-item:focus {
+    color: var(--hover-color);
+}
+
+.how__list-item:active {
+    color: var(--active-color);
+}
+
+.element-heading__how {
+    margin-bottom: 10px;
+}
+
+.section-descr__how {
+    margin-bottom: 18px;
+}
+
+.section-btn_how {
+    border: 1px solid #000000;
+    border-radius: 16px;
+    padding: 20px 40px;
+    background-color: unset
+}
+.section-btn_how:hover {
+    color: white;
+    border: 1px solid var(--hover-color);
+    background-color: var(--hover-color);
+}
+
+.section-btn_how:not(:last-child) {
+    margin-right: 32px;
+}
+
+.how__img {
+    background-image: url("../../img/how/step1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 51%;
+    min-height: 474px;
+    border-radius: 32px;
+}

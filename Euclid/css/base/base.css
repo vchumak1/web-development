@@ -1,0 +1,102 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-Regular.ttf');
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-SemiBold.ttf');
+    font-display: swap;
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-Bold.ttf');
+    font-display: swap;
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-ExtraBold.ttf');
+    font-display: swap;
+    font-weight: 800;
+    font-style: normal;
+}
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #E5E5E5;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+p, 
+h1 {
+    margin: 0;
+}
+strong {
+    display: inline-block;
+}
+
+.main {
+    padding: 50px 75px 0px 59px;
+}
+
+.btn {
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+    transition-property: color, background-color, border;
+    transition-duration: 0.5s;
+}
+.section-btn {
+    font-weight: 700;
+    font-size: 16px;
+    padding: 18px 41px;
+}
+
+.section-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 59px;
+    color: #000000;
+}
+
+.element-heading {
+    font-weight: 700;
+    font-size: 24px;
+    color: #000000;
+}
+
+.section-descr {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 32px;
+    color: #000000;
+}
