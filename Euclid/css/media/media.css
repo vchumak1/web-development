@@ -1,0 +1,148 @@
+
+@media (max-width: 1400px) {
+    .header__nav {
+        margin-left: 0;
+    }
+    .about__container {
+        flex-direction: column;
+        width: 67%;
+        margin: 0 auto;
+    }
+
+    .about__more {
+        position: relative;
+        margin-right: 0;
+        width: 100%;
+        background-size: auto;
+        margin-bottom: 32px;
+    }
+    .about__success-box {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+    }
+    .about__advantages {
+        width: 100%;
+    }
+
+}
+@media (max-width: 1200px) {
+    .section-descr {
+        font-size: 14px;
+    }
+    .promo__title {
+        line-height: 70px;
+    }
+    .header__nav {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+    }
+    .about__container {
+        width: 85%;
+    }
+    .how__list {
+        margin-right: 0;
+        display: flex;
+        justify-content: space-between;
+    }
+    .how__list-item {
+        margin-right: 0;
+    }
+    .how__wrapper {
+        flex-direction: column-reverse;
+    }
+    .how__img {
+        width: 100%;
+    }
+    .how__descr {
+        width: 100%;
+    }
+    .section-descr__how > br {
+        display: none;
+    }
+    .questions__list-item > .element-heading {
+        width: 70%;
+    }
+    .footer__left {
+        margin-right: 0;
+    }
+    .section-descr_footer {
+        display: none;
+    }
+    .footer__modal {
+        width: 100%;
+    }
+}
+
+@media (max-width: 992px) {
+    .section-title {
+        font-size: 48px;
+    }
+    .promo__title {
+        font-size: 50px;
+        line-height: 61px;
+    }
+    .promo__descr {
+        font-size: 18px;
+        line-height: 22px;
+        margin-bottom: 115px;
+    }
+    .about__container {
+        width: 85%;
+    }
+    .about__success-descr {
+        font-size: 16px;
+        line-height: 32px;
+    }
+    .about__advantages-box {
+        flex-direction: column;
+        padding: 35px 46px 35px 40px;
+    }
+    .about__advantages-icon {
+        margin-right: 0;
+        margin: 0 auto;
+    }
+    .section-descr__about > br {
+        display: none;
+    }
+    .questions__list-item > .element-heading {
+        width: 70%;
+    }
+    .section-btn_footer {
+        width: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .main {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .promo {
+        padding: 40px 0px 30px 0px;
+    }
+    .about__container {
+        width: 100%;
+    }
+    .about__advantages-box {
+        flex-direction: column;
+        padding: 35px 46px 35px 40px;
+    }
+    .footer {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .footer__wrapper {
+        flex-direction: column-reverse;
+    }
+    .footer__modal {
+        width: 100%;
+    }
+    .footer__nav {
+        display: none;
+    }
+}

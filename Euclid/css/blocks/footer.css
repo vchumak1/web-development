@@ -73,7 +73,7 @@
 .footer__modal {
     display: flex;
     flex-direction: column;
-    width: 570px;
+    width: 100%;
 }
 .footer__modal-input {
     padding: 14px 24px;
