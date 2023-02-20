@@ -37,6 +37,10 @@
     color: var(--active-color);
 }
 
+.how__list-item_active {
+    color: var(--active-color);
+}
+
 .element-heading__how {
     margin-bottom: 10px;
 }

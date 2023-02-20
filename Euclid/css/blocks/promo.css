@@ -52,7 +52,11 @@
     width: 15px;
     height: 15px;
     background: #CACACA;
-    border-radius: 100%
+    border-radius: 100%;
+    cursor: pointer;
+}
+.promo__nav-item_active {
+    background-color: #fff;
 }
 
 .promo__nav-item:not(:last-child) {

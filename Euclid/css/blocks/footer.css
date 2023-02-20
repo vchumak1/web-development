@@ -111,8 +111,8 @@
 
 .section-btn_footer {
     margin: 0 auto;
-    padding: 19px 52px;
-    width: 47%;
+    padding: 19px 15px;
+    width: 50%;
     background-color: var(--orange-color);
     color: white;
 }
