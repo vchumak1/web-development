@@ -51,7 +51,8 @@
     display: block;
     position: absolute;
     background-color: black;
-    transition: background-color 0.5s;
+    transition-property: background-color, transform;
+    transition-duration: 0.5s;
 }
 
 .questions__cross:nth-child(1) {
@@ -68,3 +69,28 @@
     transform: translateX(-50%);
     transform: translateY(-50%);
 }
+
+.questions__cross_active:nth-child(1) {
+    width: 25px;
+    height: 1px;
+    transform: translateX(-4px) translateY(1px) rotate(-45deg);
+}
+.questions__cross_active:nth-child(2) {
+    width: 1px;
+    height: 25px;
+    transform: translateX(-10px) translateY(-11px) rotate(-45deg);
+}
+
+.section-descr__answer {
+    display: none;
+    width: 50%;
+    margin-top: 20px;
+}
+
+.section-descr__answer_active {
+    display: block;
+    animation-name: fade;
+    animation-duration: 0.5s;
+    
+}
+@keyframes fade{from{opacity: 0.1;}to{opacity: 1;}}

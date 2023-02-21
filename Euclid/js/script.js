@@ -107,3 +107,35 @@ function showTabsActive() {
 hideTabsActive();
 showTabsActive();
 
+//qestions
+
+const crossBtn = document.querySelectorAll(".questions__list-btn"),
+      answer = document.querySelectorAll(".section-descr__answer");
+
+function fillAnswersDescr() {
+    answer.forEach(item => item.innerHTML = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur fuga asperiores nostrum possimus quaerat inventore provident dolore recusandae temporibus, quibusdam, aspernatur voluptatibus optio animi laboriosam id ipsa debitis reiciendis. Facere!`);
+}
+
+function hideAnswers(i = 0) {
+    crossBtn.forEach(item => {
+        item.lastElementChild.classList.remove("questions__cross_active");
+        item.firstElementChild.classList.remove("questions__cross_active");
+    });
+
+    answer.forEach(item => item.classList.remove("section-descr__answer_active"));
+}
+
+function showAnswers() {
+    crossBtn.forEach((item, i) => {
+        item.addEventListener("click", (e) => {
+            item.firstElementChild.classList.toggle("questions__cross_active");
+            item.lastElementChild.classList.toggle("questions__cross_active");
+            answer[i].classList.toggle("section-descr__answer_active");
+        });
+        hideAnswers(i);
+    });
+}
+
+hideAnswers();
+showAnswers();
+fillAnswersDescr();
