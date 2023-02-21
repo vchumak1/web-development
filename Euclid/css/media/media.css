@@ -42,7 +42,7 @@
         display: block;
     }
     .about__container {
-        width: 85%;
+        width: 80%;
     }
     .how__list {
         margin-right: 0;
@@ -104,7 +104,7 @@
     }
     .about__advantages-icon {
         margin-right: 0;
-        margin: 0 auto;
+        margin-left: 70px;
     }
     .section-descr__about > br {
         display: none;
@@ -118,12 +118,51 @@
 }
 
 @media (max-width: 576px) {
+    .header {
+        padding: 15px 10px;
+    }
+    .header svg {
+        display: none;
+    }
     .main {
         padding-left: 10px;
         padding-right: 10px;
     }
     .promo {
-        padding: 40px 0px 30px 0px;
+        padding: 40px 10px 30px 10px;
+    }
+    .promo__title {
+        line-height: 50px;
+        font-size: 45px;
+    }
+    .promo__descr {
+        margin-bottom: 30px;
+    }
+    .about__success-box {
+        flex-direction: column;
+        padding-left: 10px;
+        padding-right: 10px;
+
+    }
+    .about__success-descr {
+        margin-bottom: 20px;
+    }
+    .about__success-descr br {
+        display: none;
+    }
+    .how__title {
+        font-size: 38px;
+    }
+    .how__list-item:not(:last-child) {
+        margin-right: 0px;
+    }
+    .section-btn_how {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .section-btn_how:not(:last-child) {
+        margin-bottom: 20px;
     }
     .about__container {
         width: 100%;

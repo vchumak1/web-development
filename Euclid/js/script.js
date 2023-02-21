@@ -19,7 +19,6 @@ function activateHamburger() {
 
     hamburgerMenuItems.forEach(item => {
         item.addEventListener("click", (e) => {
-            e.preventDefault();
             hamburgerMenu.classList.remove("hamburger-menu__active");
         });
     });

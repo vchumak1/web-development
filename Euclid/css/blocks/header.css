@@ -37,8 +37,8 @@
     display: flex;
     background-color: #fff;
     flex-direction: column;
-    padding: 38px 106px 229px 50px;
-    left: -50%;
+    padding: 50px 106px 229px 50px;
+    left: -100%;
     transition: left 0.5s;
     cursor: pointer;
 }
