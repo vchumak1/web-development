@@ -1,103 +1,337 @@
-"use strict";
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
 
-document.addEventListener('DOMContentLoaded', () => {
+/***/ "./Food/src/js/modules/calculator.js":
+/*!*******************************************!*\
+  !*** ./Food/src/js/modules/calculator.js ***!
+  \*******************************************/
+/***/ ((module) => {
 
-    const tabs = document.querySelectorAll('.tabheader__item'),
-        tabsContent = document.querySelectorAll('.tabcontent'),
-        tabsParent = document.querySelector('.tabheader__items');
-    //прячем всё содержимое табов
-    function hideTabsContent() {
-        tabsContent.forEach(item => {
-            item.classList.add('hide');
-            item.classList.remove('show', 'fade');
-        });
-        tabs.forEach(item => {
-            item.classList.remove('tabheader__item_active');
-        });
-    }
-    //реализуем отображение активного контента
-    function showTabsContent(i = 0) {
-        tabsContent[i].classList.remove('hide');
-        tabsContent[i].classList.add('show', 'fade');
-        tabs[i].classList.add('tabheader__item_active');
+function calculator() {
+    //калькулятор
+    const result = document.querySelector(".calculating__result span");
+
+    let sex, height, weight, age, ratio;
+
+    if (localStorage.getItem('sex')) {
+        sex = localStorage.getItem('sex');
+    } else {
+        sex = 'female';
+        localStorage.setItem('sex', sex);
     }
 
-    hideTabsContent();
-    showTabsContent();
+    if (localStorage.getItem('ratio')) {
+        ratio = localStorage.getItem('ratio');
+    } else {
+        ratio = 1.375;
+        localStorage.setItem('ratio', ratio);
+    }
 
-    tabsParent.addEventListener('click', function (event) {
-        const target = event.target;
+    function initLocalSettings(selector, activeClass) {
+        const elements = document.querySelectorAll(selector);
 
-        if (target && target.classList.contains('tabheader__item')) {
-            //перебираем наши заголовки для того, чтобы определить активный и раскрыть описание таба по индексу заголовка.
-            tabs.forEach((item, i) => {
-                //идет проверка того, что событие произошло в том же элементе, который перебирается. Далее повторно вызываем функции и передаем в функцию showTabsContent(i) индекс заголовка
-                if (item == target) {
-                    hideTabsContent();
-                    showTabsContent(i);
-                }
-            });
+        elements.forEach(elem => {
+            elem.classList.remove(activeClass);
+            if (elem.getAttribute('id') === localStorage.getItem('sex')) {
+                elem.classList.add(activeClass);
+            }
+            if (elem.getAttribute('data-ratio') === localStorage.getItem('ratio')) {
+                elem.classList.add(activeClass);
+            }
+        });
+    }
+
+    initLocalSettings('#gender div', 'calculating__choose-item_active');
+    initLocalSettings('.calculating__choose_big div', 'calculating__choose-item_active');
+
+
+    function calcTotal() {
+        if (!sex || !height || !weight || !age || !ratio) {
+            result.textContent = '____';
+            return;
         }
-    });
-
-    //Создаем timer
-    const deadline = '2022-11-11';
-
-    function getTimeRemaining(endtime) {
-        //получаем разницу в миллисекундах между датой окончанчания события и текущей датой и временем
-        const t = Date.parse(endtime) - Date.parse(new Date()),
-            days = Math.floor(t / (1000 * 60 * 60 * 24)),
-            //чтобы часы, минуты и секунды не превышали значений 24, 60 и 60, производится деление по остатку на 24 и 60
-            hours = Math.floor((t / (1000 * 60 * 60) % 24)),
-            minutes = Math.floor((t / 1000 / 60) % 60),
-            seconds = Math.floor((t / 1000) % 60);
-
-        return {
-            'total': t,
-            'days': days,
-            'hours': hours,
-            'minutes': minutes,
-            'seconds': seconds
-        };
-    }
-    //функция помощник, добавляет к таймеру ноль, если число меньше 10, если дата просрочена, то оставляет нули, чтобы не ползла вёрстка
-    function getZero(num) {
-        if (num >= 0 && num < 10) {
-            return `0${num}`;
-        } else if (num >= 0) {
-            return num;
+        if (sex === 'female') {
+            result.textContent = Math.round((447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age)) * ratio);
         } else {
-            return '00';
+            result.textContent = Math.round((88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age)) * ratio);
         }
     }
 
-    function setClock(selector, endtime) {
-        //получаем элементы со страницы, куда будем передавать информацию
-        const timer = document.querySelector(selector),
-            days = timer.querySelector('#days'),
-            hours = timer.querySelector('#hours'),
-            minutes = timer.querySelector('#minutes'),
-            seconds = timer.querySelector('#seconds'),
-            //определяем время запуска функции updateClock
-            timeInterval = setInterval(updateClock, 1000);
-        //убираем мигание в браузере. Мигание появилось в результате того, что setInterval занимает 1 секунду
-        updateClock();
+    calcTotal();
 
-        //создаем функцию, которая будет обновлять наш таймер на странице
-        function updateClock() {
-            const t = getTimeRemaining(endtime);
-            days.innerHTML = getZero(t.days);
-            hours.innerHTML = getZero(t.hours);
-            minutes.innerHTML = getZero(t.minutes);
-            seconds.innerHTML = getZero(t.seconds);
+    function getStaticInformation(selector, activeClass) {
+        const elements = document.querySelectorAll(selector);
 
-            if (t.total <= 0) {
-                clearInterval(timeInterval);
+        elements.forEach(elem => {
+            elem.addEventListener('click', (e) => {
+                if (e.target.getAttribute('data-ratio')) {
+                    ratio = +e.target.getAttribute('data-ratio');
+                    localStorage.setItem('ratio', +e.target.getAttribute('data-ratio'));
+                } else {
+                    sex = e.target.getAttribute('id');
+                    localStorage.setItem('sex', e.target.getAttribute('id'));
+                }
+
+                elements.forEach(elem => elem.classList.remove(activeClass));
+
+                e.target.classList.add(activeClass);
+                calcTotal();
+            });
+        });
+    }
+
+    getStaticInformation('#gender div', 'calculating__choose-item_active');
+    getStaticInformation('.calculating__choose_big div', 'calculating__choose-item_active');
+
+    function getDynamicInformation(selector) {
+        const input = document.querySelector(selector);
+
+        input.addEventListener("input", () => {
+
+            if (input.value.match(/\D/g)) {
+                input.style.outline = "1px solid red";
+            } else {
+                input.style.outline = "none";
+            }
+
+            switch (input.getAttribute("id")) {
+                case "height": height = +input.value;
+                    break;
+                case "weight": weight = +input.value;
+                    break;
+                case "age": age = +input.value;
+                    break;
+            }
+            calcTotal();
+        });
+    }
+    getDynamicInformation("#height");
+    getDynamicInformation("#weight");
+    getDynamicInformation("#age");
+}
+
+module.exports = calculator;
+
+/***/ }),
+
+/***/ "./Food/src/js/modules/cards.js":
+/*!**************************************!*\
+  !*** ./Food/src/js/modules/cards.js ***!
+  \**************************************/
+/***/ ((module) => {
+
+function cards() {
+        //создаем продуктовые карточки с помощью классов
+
+        class MenuCard {
+            //используем rest оператор ...classes для того, чтобы предусмотреть возможность расширения карточки
+            constructor(src, alt, title, descr, price, parentSelector, ...classes) {
+                this.src = src;
+                this.alt = alt;
+                this.title = title;
+                this.descr = descr;
+                this.price = price;
+                //this.classes это будет массив
+                this.classes = classes;
+                //получаем родительский элемент, куда будут помещаться наши карточки
+                this.parent = document.querySelector(parentSelector);
+                //зададим курс валют
+                this.transfer = 60;
+                //вызываем метод конвертации валют и обновляем свойство price
+                this.changeToUAH();
+            }
+            //создаем метод конвертации валют
+            changeToUAH() {
+                this.price = this.price * this.transfer;
+            }
+            //создаем метод вертски продуктовой карточки
+            render() {
+                const element = document.createElement('div');
+                //создаем защиту от пустого массива в результате работы rest оператора
+                if (this.classes.length == 0) {
+                    this.element = 'menu__item';
+                    //помещаем класс в наш div
+                    element.classList.add(this.element);
+                } else {
+                    this.classes.forEach(className => element.classList.add(className));
+                    element.innerHTML = `
+                        <img src=${this.src} alt=${this.alt}>
+                        <h3 class="menu__item-subtitle">${this.title}</h3>
+                        <div class="menu__item-descr">${this.descr}</div>
+                        <div class="menu__item-divider"></div>
+                        <div class="menu__item-price">
+                            <div class="menu__item-cost">Цена:</div>
+                            <div class="menu__item-total"><span>${this.price}</span> руб/день</div>
+                        </div>`;
+                }
+    
+                //помещаем созданный элемент на страницу
+                this.parent.append(element);
             }
         }
-    }
-    setClock('.timer', deadline);
+    
+        //создаем функцию получения данных с сервера для внесения в карточки
+        const getResource = async (url) => {
+    
+            //В данном случае настройки метода, заголовки и тело не нужно, т.к. мы ничего не отправляем на сервер
+            const res = await fetch(url);
+    
+            if (!res.ok) {
+                throw new Error(`Что то пошло не так c ${url}, статус: ${res.status}`);
+            }
+    
+            return await res.json();
+        };
+    
+        //создаем продуктовые карточки с помощью деструктуризации массива с объектами, который получен с сервера
+        getResource("http://localhost:3000/menu")
+            .then(data => {
+                data.forEach(({ img, altimg, title, descr, price }) => {
+                    new MenuCard(img, altimg, title, descr, price, ".menu .container", "menu__item").render();
+                });
+            });
+    
+        //создаем экземпляры класса без использования промежуточных переменных
+        // new MenuCard(
+        //     "img/tabs/vegy.jpg",
+        //     "vegy",
+        //     'Меню "Фитнес"',
+        //     'Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!',
+        //     10,
+        //     //таким образом передаем селектор родительского элемента для размещения карточки, поставлены точки т.к. работает querySelector()
+        //     ".menu .container",
+        //     //тестируем работу rest оператора и проверяем дополнительные классы у карточки
+        //     "menu__item",
+        //     "big"
+        // ).render();
+    
+        // new MenuCard(
+        //     "img/tabs/elite.jpg",
+        //     "elite",
+        //     'Меню “Премиум”',
+        //     'В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!',
+        //     15,
+        //     ".menu .container",
+        //     "menu__item"
+        // ).render();
+    
+        // new MenuCard(
+        //     "img/tabs/post.jpg",
+        //     "post",
+        //     'Меню "Постное"',
+        //     'Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.',
+        //     5,
+        //     ".menu .container",
+        //     "menu__item"
+    
+        // ).render();
+    
+    
+        //создаем отправку данных из форм на сервер старой технологией
+        /* const forms = document.querySelectorAll("form");
+    
+        const message = {
+            loading: "img/form/spinner.svg",
+            success: "Спасибо, скоро мы с Вами свяжемся",
+            failure: "Что-то пошло не так"
+        };
+    
+        forms.forEach(item => {
+            postData(item);
+        });
+    
+        function postData(form) {
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+    
+                const statusMessage = document.createElement("img");
+                statusMessage.src = message.loading;
+                statusMessage.style.cssText = `
+                    display: block;
+                    margin: 0 auto;
+                `;
+                //form.append(statusMessage);
+                //добавляем элемент после формы, чтобы не плыла вёрстка
+                form.insertAdjacentElement("afterend", statusMessage);
+    
+                const request = new XMLHttpRequest();
+                request.open("POST", "server.php");
+                //этот заголовок предназначен для отправки данных из формы на сервер без JSON
+                // request.setRequestHeader("Content-type", "multipart/form-data");
+    
+                //этот заголовок для отправки данных в формате JSON
+                request.setRequestHeader("Content-type", "application/json", "charset=UTF-8");
+    
+                const formData = new FormData(form);
+    
+                const object = {};
+    
+                formData.forEach((value, key) => {
+                    object[key] = value;
+                });
+    
+                const json = JSON.stringify(object);
+    
+                request.send(json);
+    
+                request.addEventListener("load", () => {
+                    if (request.status === 200) {
+                        console.log(request.response);
+                        //statusMessage.textContent = message.success;
+                        showThanksModal(message.success); 
+                        form.reset();
+                        setTimeout(() => {
+                            statusMessage.remove();
+                            closeModal();
+                        }, 2000);
+    
+                    } else {
+                        //statusMessage.textContent = message.failure;
+                        showThanksModal(message.failure);
+                    }
+                });
+    
+            });
+        }
+    
+        //подключаем спиннер при ожидании отправки формы на сервер и выводим окно благодарности
+    
+        function showThanksModal(message) {
+            const prevModalDialog = document.querySelector(".modal__dialog");
+    
+            prevModalDialog.classList.add("hide");
+            showModal();
+    
+            const thanksModal = document.createElement("div");
+            thanksModal.classList.add("modal__dialog");
+            thanksModal.innerHTML = `
+            <div class="modal__content">
+                <div data-close class="modal__close">&times;</div>
+                <div class="modal__title">${message}</div>
+            </div>
+            `;
+    
+            document.querySelector(".modal").append(thanksModal);
+            setTimeout(() => {
+                thanksModal.remove();
+                prevModalDialog.classList.add("show");
+                prevModalDialog.classList.remove("hide");
+                closeModal();
+            }, 4000);
+        } */
+}
 
+module.exports = cards;
+
+/***/ }),
+
+/***/ "./Food/src/js/modules/modal.js":
+/*!**************************************!*\
+  !*** ./Food/src/js/modules/modal.js ***!
+  \**************************************/
+/***/ ((module) => {
+
+function modal() {
     //создаем модальное окно
     const modalTrigger = document.querySelectorAll("[data-modal]"),
         modal = document.querySelector('.modal'),
@@ -155,205 +389,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     window.addEventListener('scroll', showModalByScroll);
 
-    //создаем продуктовые карточки с помощью классов
-
-    class MenuCard {
-        //используем rest оператор ...classes для того, чтобы предусмотреть возможность расширения карточки
-        constructor(src, alt, title, descr, price, parentSelector, ...classes) {
-            this.src = src;
-            this.alt = alt;
-            this.title = title;
-            this.descr = descr;
-            this.price = price;
-            //this.classes это будет массив
-            this.classes = classes;
-            //получаем родительский элемент, куда будут помещаться наши карточки
-            this.parent = document.querySelector(parentSelector);
-            //зададим курс валют
-            this.transfer = 60;
-            //вызываем метод конвертации валют и обновляем свойство price
-            this.changeToUAH();
-        }
-        //создаем метод конвертации валют
-        changeToUAH() {
-            this.price = this.price * this.transfer;
-        }
-        //создаем метод вертски продуктовой карточки
-        render() {
-            const element = document.createElement('div');
-            //создаем защиту от пустого массива в результате работы rest оператора
-            if (this.classes.length == 0) {
-                this.element = 'menu__item';
-                //помещаем класс в наш div
-                element.classList.add(this.element);
-            } else {
-                this.classes.forEach(className => element.classList.add(className));
-                element.innerHTML = `
-                    <img src=${this.src} alt=${this.alt}>
-                    <h3 class="menu__item-subtitle">${this.title}</h3>
-                    <div class="menu__item-descr">${this.descr}</div>
-                    <div class="menu__item-divider"></div>
-                    <div class="menu__item-price">
-                        <div class="menu__item-cost">Цена:</div>
-                        <div class="menu__item-total"><span>${this.price}</span> руб/день</div>
-                    </div>`;
-            }
-
-            //помещаем созданный элемент на страницу
-            this.parent.append(element);
-        }
-    }
-
-    //создаем функцию получения данных с сервера для внесения в карточки
-    const getResource = async (url) => {
-
-        //В данном случае настройки метода, заголовки и тело не нужно, т.к. мы ничего не отправляем на сервер
-        const res = await fetch(url);
-
-        if (!res.ok) {
-            throw new Error(`Что то пошло не так c ${url}, статус: ${res.status}`);
-        }
-
-        return await res.json();
-    };
-
-    //создаем продуктовые карточки с помощью деструктуризации массива с объектами, который получен с сервера
-    getResource("http://localhost:3000/menu")
-        .then(data => {
-            data.forEach(({ img, altimg, title, descr, price }) => {
-                new MenuCard(img, altimg, title, descr, price, ".menu .container", "menu__item").render();
-            });
-        });
-
-    //создаем экземпляры класса без использования промежуточных переменных
-    // new MenuCard(
-    //     "img/tabs/vegy.jpg",
-    //     "vegy",
-    //     'Меню "Фитнес"',
-    //     'Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!',
-    //     10,
-    //     //таким образом передаем селектор родительского элемента для размещения карточки, поставлены точки т.к. работает querySelector()
-    //     ".menu .container",
-    //     //тестируем работу rest оператора и проверяем дополнительные классы у карточки
-    //     "menu__item",
-    //     "big"
-    // ).render();
-
-    // new MenuCard(
-    //     "img/tabs/elite.jpg",
-    //     "elite",
-    //     'Меню “Премиум”',
-    //     'В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!',
-    //     15,
-    //     ".menu .container",
-    //     "menu__item"
-    // ).render();
-
-    // new MenuCard(
-    //     "img/tabs/post.jpg",
-    //     "post",
-    //     'Меню "Постное"',
-    //     'Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.',
-    //     5,
-    //     ".menu .container",
-    //     "menu__item"
-
-    // ).render();
-
-
-    //создаем отправку данных из форм на сервер старой технологией
-    /* const forms = document.querySelectorAll("form");
-
-    const message = {
-        loading: "img/form/spinner.svg",
-        success: "Спасибо, скоро мы с Вами свяжемся",
-        failure: "Что-то пошло не так"
-    };
-
-    forms.forEach(item => {
-        postData(item);
-    });
-
-    function postData(form) {
-        form.addEventListener("submit", (e) => {
-            e.preventDefault();
-
-            const statusMessage = document.createElement("img");
-            statusMessage.src = message.loading;
-            statusMessage.style.cssText = `
-                display: block;
-                margin: 0 auto;
-            `;
-            //form.append(statusMessage);
-            //добавляем элемент после формы, чтобы не плыла вёрстка
-            form.insertAdjacentElement("afterend", statusMessage);
-
-            const request = new XMLHttpRequest();
-            request.open("POST", "server.php");
-            //этот заголовок предназначен для отправки данных из формы на сервер без JSON
-            // request.setRequestHeader("Content-type", "multipart/form-data");
-
-            //этот заголовок для отправки данных в формате JSON
-            request.setRequestHeader("Content-type", "application/json", "charset=UTF-8");
-
-            const formData = new FormData(form);
-
-            const object = {};
-
-            formData.forEach((value, key) => {
-                object[key] = value;
-            });
-
-            const json = JSON.stringify(object);
-
-            request.send(json);
-
-            request.addEventListener("load", () => {
-                if (request.status === 200) {
-                    console.log(request.response);
-                    //statusMessage.textContent = message.success;
-                    showThanksModal(message.success); 
-                    form.reset();
-                    setTimeout(() => {
-                        statusMessage.remove();
-                        closeModal();
-                    }, 2000);
-
-                } else {
-                    //statusMessage.textContent = message.failure;
-                    showThanksModal(message.failure);
-                }
-            });
-
-        });
-    }
-
-    //подключаем спиннер при ожидании отправки формы на сервер и выводим окно благодарности
-
-    function showThanksModal(message) {
-        const prevModalDialog = document.querySelector(".modal__dialog");
-
-        prevModalDialog.classList.add("hide");
-        showModal();
-
-        const thanksModal = document.createElement("div");
-        thanksModal.classList.add("modal__dialog");
-        thanksModal.innerHTML = `
-        <div class="modal__content">
-            <div data-close class="modal__close">&times;</div>
-            <div class="modal__title">${message}</div>
-        </div>
-        `;
-
-        document.querySelector(".modal").append(thanksModal);
-        setTimeout(() => {
-            thanksModal.remove();
-            prevModalDialog.classList.add("show");
-            prevModalDialog.classList.remove("hide");
-            closeModal();
-        }, 4000);
-    } */
-
     //создаем отправку формы на сервер с помощью Promise и fetch
     const forms = document.querySelectorAll("form");
 
@@ -389,9 +424,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const statusMessage = document.createElement("img");
             statusMessage.src = message.loading;
             statusMessage.style.cssText = `
-                display: block;
-                margin: 0 auto;
-            `;
+        display: block;
+        margin: 0 auto;
+    `;
             //form.append(statusMessage);
             //добавляем элемент после формы, чтобы не плыла вёрстка
             form.insertAdjacentElement("afterend", statusMessage);
@@ -399,11 +434,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(form);
             //закоментированно для отправки не в формате JSON
             /* const object = {};
- 
+        
              formData.forEach((value, key) => {
                  object[key] = value;
              });
- 
+        
              const json = JSON.stringify(object); */
 
             //Это более старое решение преобразования данных с форм в json
@@ -459,11 +494,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const thanksModal = document.createElement("div");
         thanksModal.classList.add("modal__dialog");
         thanksModal.innerHTML = `
-        <div class="modal__content">
-            <div data-close class="modal__close">&times;</div>
-            <div class="modal__title">${message}</div>
-        </div>
-        `;
+<div class="modal__content">
+    <div data-close class="modal__close">&times;</div>
+    <div class="modal__title">${message}</div>
+</div>
+`;
 
         document.querySelector(".modal").append(thanksModal);
         setTimeout(() => {
@@ -479,6 +514,19 @@ document.addEventListener('DOMContentLoaded', () => {
     //     .then(data => data.json())
     //     .then(res => console.log(res));
 
+}
+
+module.exports = modal;
+
+/***/ }),
+
+/***/ "./Food/src/js/modules/slider.js":
+/*!***************************************!*\
+  !*** ./Food/src/js/modules/slider.js ***!
+  \***************************************/
+/***/ ((module) => {
+
+function slider() {
     //создаем слайдер, вариант 1 (простой)
     //моя реализация слайдера вариант 1 (простой) дополнительно прикрутил автоматическую прокрутку слайдов
     // const prevBtn = document.querySelector(".offer__slider-prev"),
@@ -599,7 +647,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //создаем точки для навигации слайдера
     const indicators = document.createElement("ol"),
-          dots = [];
+        dots = [];
     indicators.classList.add("carousel-indicators");
 
     //помещаем созданный элемент в блок со слайдером
@@ -611,7 +659,7 @@ document.addEventListener('DOMContentLoaded', () => {
         dot.setAttribute("data-slide-to", i + 1);
         dot.classList.add("dot");
 
-        if(i === 0) {
+        if (i === 0) {
             dot.style.opacity = 1;
         }
 
@@ -643,7 +691,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             current.textContent = slideIndex;
         }
-        dots.forEach(dot => dot.style.opacity =".5");
+        dots.forEach(dot => dot.style.opacity = ".5");
         dots[slideIndex - 1].style.opacity = 1;
     }
 
@@ -677,7 +725,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         clearInterval(slidesSwitcher);
 
-        dots.forEach(dot => dot.style.opacity =".5");
+        dots.forEach(dot => dot.style.opacity = ".5");
         dots[slideIndex - 1].style.opacity = 1;
     });
 
@@ -691,78 +739,202 @@ document.addEventListener('DOMContentLoaded', () => {
             offset = deleteNotDigits(width) * (slideTo - 1);
             slidesField.style.transform = `translateX(-${offset}px)`;
 
-            dots.forEach(dot => dot.style.opacity =".5");
+            dots.forEach(dot => dot.style.opacity = ".5");
             dots[slideIndex - 1].style.opacity = 1;
 
-            
-        if (slides.length < 10) {
-            current.textContent = `0${slideIndex}`;
-        } else {
-            current.textContent = slideIndex;
-        }
+
+            if (slides.length < 10) {
+                current.textContent = `0${slideIndex}`;
+            } else {
+                current.textContent = slideIndex;
+            }
 
             clearInterval(slidesSwitcher);
         });
     });
+}
 
-    //калькулятор
-    const result = document.querySelector(".calculating__result span");
-    let sex = 'female', 
-        height, weight, age,
-        ratio = '1.375';
-    
-    function calcTotal() {
-        if(!sex || !height || !weight || !age || !ratio) {
-            result.textContent = '____';
-            return;
-        }
-        if(sex === 'female') {
-            result.textContent = Math.round((447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age)) * ratio);
-        } else {
-            result.textContent = Math.round((88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age)) * ratio);
-        }
+module.exports = slider;
+
+/***/ }),
+
+/***/ "./Food/src/js/modules/tabs.js":
+/*!*************************************!*\
+  !*** ./Food/src/js/modules/tabs.js ***!
+  \*************************************/
+/***/ ((module) => {
+
+function tabs() {
+    const tabs = document.querySelectorAll('.tabheader__item'),
+        tabsContent = document.querySelectorAll('.tabcontent'),
+        tabsParent = document.querySelector('.tabheader__items');
+    //прячем всё содержимое табов
+    function hideTabsContent() {
+        tabsContent.forEach(item => {
+            item.classList.add('hide');
+            item.classList.remove('show', 'fade');
+        });
+        tabs.forEach(item => {
+            item.classList.remove('tabheader__item_active');
+        });
+    }
+    //реализуем отображение активного контента
+    function showTabsContent(i = 0) {
+        tabsContent[i].classList.remove('hide');
+        tabsContent[i].classList.add('show', 'fade');
+        tabs[i].classList.add('tabheader__item_active');
     }
 
-    calcTotal();
+    hideTabsContent();
+    showTabsContent();
 
-    function getStaticInformation(parentSelector, activeClass) {
-        const elements = document.querySelectorAll(`${parentSelector} div`);
+    tabsParent.addEventListener('click', function (event) {
+        const target = event.target;
 
-        elements.forEach(elem => {
-            elem.addEventListener('click', (e) => {
-                if(e.target.getAttribute('data-ratio')) {
-                    ratio = +e.target.getAttribute('data-ratio');
-                } else {
-                   sex = e.target.getAttribute('id');
+        if (target && target.classList.contains('tabheader__item')) {
+            //перебираем наши заголовки для того, чтобы определить активный и раскрыть описание таба по индексу заголовка.
+            tabs.forEach((item, i) => {
+                //идет проверка того, что событие произошло в том же элементе, который перебирается. Далее повторно вызываем функции и передаем в функцию showTabsContent(i) индекс заголовка
+                if (item == target) {
+                    hideTabsContent();
+                    showTabsContent(i);
                 }
-    
-                elements.forEach(elem => elem.classList.remove(activeClass));
-    
-                e.target.classList.add(activeClass);
-                calcTotal();
             });
-        });
+        }
+    });
+}
+
+
+
+module.exports = tabs;
+
+/***/ }),
+
+/***/ "./Food/src/js/modules/timer.js":
+/*!**************************************!*\
+  !*** ./Food/src/js/modules/timer.js ***!
+  \**************************************/
+/***/ ((module) => {
+
+function timer() {
+    //Создаем timer
+    const deadline = '2022-11-11';
+
+    function getTimeRemaining(endtime) {
+        //получаем разницу в миллисекундах между датой окончанчания события и текущей датой и временем
+        const t = Date.parse(endtime) - Date.parse(new Date()),
+            days = Math.floor(t / (1000 * 60 * 60 * 24)),
+            //чтобы часы, минуты и секунды не превышали значений 24, 60 и 60, производится деление по остатку на 24 и 60
+            hours = Math.floor((t / (1000 * 60 * 60) % 24)),
+            minutes = Math.floor((t / 1000 / 60) % 60),
+            seconds = Math.floor((t / 1000) % 60);
+
+        return {
+            'total': t,
+            'days': days,
+            'hours': hours,
+            'minutes': minutes,
+            'seconds': seconds
+        };
+    }
+    //функция помощник, добавляет к таймеру ноль, если число меньше 10, если дата просрочена, то оставляет нули, чтобы не ползла вёрстка
+    function getZero(num) {
+        if (num >= 0 && num < 10) {
+            return `0${num}`;
+        } else if (num >= 0) {
+            return num;
+        } else {
+            return '00';
+        }
     }
 
-    getStaticInformation('#gender', 'calculating__choose-item_active');
-    getStaticInformation('.calculating__choose_big', 'calculating__choose-item_active');
+    function setClock(selector, endtime) {
+        //получаем элементы со страницы, куда будем передавать информацию
+        const timer = document.querySelector(selector),
+            days = timer.querySelector('#days'),
+            hours = timer.querySelector('#hours'),
+            minutes = timer.querySelector('#minutes'),
+            seconds = timer.querySelector('#seconds'),
+            //определяем время запуска функции updateClock
+            timeInterval = setInterval(updateClock, 1000);
+        //убираем мигание в браузере. Мигание появилось в результате того, что setInterval занимает 1 секунду
+        updateClock();
 
-    function getDynamicInformation(selector) {
-        const input = document.querySelector(selector);
+        //создаем функцию, которая будет обновлять наш таймер на странице
+        function updateClock() {
+            const t = getTimeRemaining(endtime);
+            days.innerHTML = getZero(t.days);
+            hours.innerHTML = getZero(t.hours);
+            minutes.innerHTML = getZero(t.minutes);
+            seconds.innerHTML = getZero(t.seconds);
 
-        input.addEventListener("input", () => {
-            switch(input.getAttribute("id")) {
-                case "height": height = +input.value;
-                break;
-                case "weight": weight = +input.value;
-                break;
-                case "age": age = +input.value;
-                break;
+            if (t.total <= 0) {
+                clearInterval(timeInterval);
             }
-            calcTotal();
-        });
+        }
     }
-    getDynamicInformation("#height");
-    getDynamicInformation("#weight");
-    getDynamicInformation("#age");
+    setClock('.timer', deadline);
+}
+
+module.exports = timer;
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+(() => {
+"use strict";
+/*!*****************************!*\
+  !*** ./Food/src/js/main.js ***!
+  \*****************************/
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const tabs = __webpack_require__(/*! ./modules/tabs */ "./Food/src/js/modules/tabs.js"),
+          timer = __webpack_require__(/*! ./modules/timer */ "./Food/src/js/modules/timer.js"),
+          slider = __webpack_require__(/*! ./modules/slider */ "./Food/src/js/modules/slider.js"),
+          modal = __webpack_require__(/*! ./modules/modal */ "./Food/src/js/modules/modal.js"),
+          cards = __webpack_require__(/*! ./modules/cards */ "./Food/src/js/modules/cards.js"),
+          calculator = __webpack_require__(/*! ./modules/calculator */ "./Food/src/js/modules/calculator.js");
+
+    tabs();
+    timer();
+    slider();
+    modal();
+    cards();
+    calculator();
+    
 });
+})();
+
+/******/ })()
+;
+//# sourceMappingURL=main.js.map
