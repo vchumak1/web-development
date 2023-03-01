@@ -51,7 +51,7 @@ console.log(removeRubish);
 console.log(kate.join(' ').match(/kate apple/g));
 console.log(viktor.join(' ').match(/viktor apple/g));
 
-const string = "the_stealth_warrior";
+const string = "the-stealth_warrior";
 
 function toCamelCase(string) {
     if (string === '' || typeof (string) === 'undefined' || string === null) {
@@ -64,19 +64,28 @@ function toCamelCase(string) {
         for (let i = 0; i < dashes.length; i++) {
             string = string.replace(/\-\w/, dashes[i]).replace(/\-/, '');
         }
-
-        return string;
     }
     
-    if (string.match(/\-/g) !== null && string.match(/\_/g).length > 0 ) {
+    if (string.match(/\_/g) !== null && string.match(/\_/g).length > 0 ) {
         let underlines = string.match(/\_\w/g).map(item => item.toUpperCase());
 
         for (let i = 0; i < underlines.length; i++) {
             string = string.replace(/\_\w/, underlines[i]).replace(/\_/, '');
         }
-
-        return string;
     }
+
+    return string;
 }
 
-console.log(toCamelCase(string));
+// console.log(toCamelCase(string));
+
+//а вот как предыдущую задачу решать надо было
+
+function toCamelCase1(string){
+    var regExp=/[-_]\w/ig;
+    return string.replace(regExp,function(match){
+          return match.charAt(1).toUpperCase();
+     });
+}
+
+console.log(toCamelCase1(string));
