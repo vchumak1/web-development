@@ -36,6 +36,17 @@
 
 //пример комбинирования паттернов в регулярных выражениях
 
-const str = "My name is R2D2";
+// const str = "My name is R2D2";
 
-console.log(str.match(/\w\d\w\d/i));
+// console.log(str.match(/\w\d\w\d/i));
+
+const str = ":apple: <@viktor> sadjhabsdj bjshdba 🍎 🍌 :ananas: apple viktor sadsadsad 13213213 apple <@kate> 🍎 dkjbsakjd apple <@kate> :grape: :apple:";
+let removeRubish = str.replace(/[\:\<@\>]/g, '');
+removeRubish = removeRubish.replace(/[^viktor aple]/g, '');
+
+let viktor = removeRubish.split(' ').filter(item => item === 'viktor' || item ==='apple');
+let kate =  removeRubish.split(' ').filter(item => item === 'kate' || item ==='apple');
+
+console.log(removeRubish);
+console.log(kate.join(' ').match(/kate apple/g));
+console.log(viktor.join(' ').match(/viktor apple/g));

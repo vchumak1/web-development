@@ -1,13 +1,13 @@
 "use strict";
 
-document.addEventListener('DOMContentLoaded', () => {
+import tabs from './modules/tabs';
+import timer from './modules/timer';
+import slider from './modules/slider';
+import modal from './modules/modal';
+import cards from './modules/cards';
+import calculator from './modules/calculator';
 
-    const tabs = require('./modules/tabs'),
-          timer = require('./modules/timer'),
-          slider = require('./modules/slider'),
-          modal = require('./modules/modal'),
-          cards = require('./modules/cards'),
-          calculator = require('./modules/calculator');
+document.addEventListener('DOMContentLoaded', () => {
 
     tabs();
     timer();
