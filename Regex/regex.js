@@ -44,9 +44,39 @@ const str = ":apple: <@viktor> sadjhabsdj bjshdba 🍎 🍌 :ananas: apple vikto
 let removeRubish = str.replace(/[\:\<@\>]/g, '');
 removeRubish = removeRubish.replace(/[^viktor aple]/g, '');
 
-let viktor = removeRubish.split(' ').filter(item => item === 'viktor' || item ==='apple');
-let kate =  removeRubish.split(' ').filter(item => item === 'kate' || item ==='apple');
+let viktor = removeRubish.split(' ').filter(item => item === 'viktor' || item === 'apple');
+let kate = removeRubish.split(' ').filter(item => item === 'kate' || item === 'apple');
 
 console.log(removeRubish);
 console.log(kate.join(' ').match(/kate apple/g));
 console.log(viktor.join(' ').match(/viktor apple/g));
+
+const string = "the_stealth_warrior";
+
+function toCamelCase(string) {
+    if (string === '' || typeof (string) === 'undefined' || string === null) {
+        return '';
+    }
+
+    if (string.match(/\-/g) !== null && string.match(/\-/g).length > 0 ) {
+        let dashes = string.match(/\-\w/g).map(item => item.toUpperCase());
+
+        for (let i = 0; i < dashes.length; i++) {
+            string = string.replace(/\-\w/, dashes[i]).replace(/\-/, '');
+        }
+
+        return string;
+    }
+    
+    if (string.match(/\-/g) !== null && string.match(/\_/g).length > 0 ) {
+        let underlines = string.match(/\_\w/g).map(item => item.toUpperCase());
+
+        for (let i = 0; i < underlines.length; i++) {
+            string = string.replace(/\_\w/, underlines[i]).replace(/\_/, '');
+        }
+
+        return string;
+    }
+}
+
+console.log(toCamelCase(string));
