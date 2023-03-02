@@ -149,15 +149,12 @@ function domainName(url){
     return url.split('.')[0];
 }
 
-const ip = '123.193.149.016';
+const ip = '123.193.149.10';
 function isValidIP(ip) {
     let splittedIp = ip.split('.').filter(item => item !== '');
-    console.log(splittedIp.length);
     let toggler = true;
 
-    if(splittedIp.length < 4) {
-        return false;
-    } else if (splittedIp.length > 4) {
+    if(splittedIp.length < 4 || splittedIp.length > 4) {
         return false;
     }
 
@@ -165,7 +162,8 @@ function isValidIP(ip) {
         if(item > 255) {
             toggler = false;
         }
-        if(item.charAt(0) === '0') {
+        if(item[0] == '0' || item[1] != 'undefined') {
+            console.log(item[1]);
             toggler = false;
         }
         if(item.match(/\D/ig) !== null) {
